@@ -1,0 +1,41 @@
+{
+    "name": "Pulumi Provider development",
+    "build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "bullseye"
+		}
+	},
+    //"image": "mcr.microsoft.com/devcontainers/go:1.21-bullseye",
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers-contrib/features/pulumi:1": {},
+        "ghcr.io/devcontainers/features/python:1": {},
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers-contrib/features/typescript:2": {},
+        "ghcr.io/devcontainers/features/dotnet:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "golang.go",
+                "ms-vscode.makefile-tools"
+            ]
+        },
+        "codespaces": {}
+    },
+    "postCreateCommand": "git config --global core.autocrlf input", 
+    //&& python -m pip install -U pip && python -m pip install cookiecutter packaging",
+    "hostRequirements": {
+        "memory": "4gb"
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    "remoteUser": "vscode",
+    "runArgs": [
+		"--env-file",
+		".devcontainer/devcontainer.env"
+	]
+}
