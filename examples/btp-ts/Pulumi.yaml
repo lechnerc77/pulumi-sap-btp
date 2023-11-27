@@ -1,0 +1,3 @@
+name: btp-ts
+runtime: nodejs
+description: Super simple demo for Pulumi on SAP BTP

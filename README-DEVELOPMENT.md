@@ -303,7 +303,7 @@ provider we created to ensure everything is working properly.
    smallest-footprint resource.  Place this code in `index.ts`.
 
 1. Configure any necessary environment variables for authentication, e.g
-   `$FOO_USERNAME`, `$FOO_TOKEN`, in your local environment.
+   `BTP_USERNAME`, `BTP_PASSWORD`, in your local environment.
 
 1. Ensure the program runs successfully via `pulumi up`.
 
