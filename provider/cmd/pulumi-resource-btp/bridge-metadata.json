@@ -1,1 +1,721 @@
-{}
+{
+    "renames": {
+        "resources": {
+            "btp:index/directory:Directory": "btp_directory",
+            "btp:index/directoryEntitlement:DirectoryEntitlement": "btp_directory_entitlement",
+            "btp:index/directoryRoleCollection:DirectoryRoleCollection": "btp_directory_role_collection",
+            "btp:index/directoryRoleCollectionAssignment:DirectoryRoleCollectionAssignment": "btp_directory_role_collection_assignment",
+            "btp:index/globalaccountResourceProvider:GlobalaccountResourceProvider": "btp_globalaccount_resource_provider",
+            "btp:index/globalaccountRoleCollection:GlobalaccountRoleCollection": "btp_globalaccount_role_collection",
+            "btp:index/globalaccountRoleCollectionAssignment:GlobalaccountRoleCollectionAssignment": "btp_globalaccount_role_collection_assignment",
+            "btp:index/globalaccountTrustConfiguration:GlobalaccountTrustConfiguration": "btp_globalaccount_trust_configuration",
+            "btp:index/subaccount:Subaccount": "btp_subaccount",
+            "btp:index/subaccountEntitlement:SubaccountEntitlement": "btp_subaccount_entitlement",
+            "btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance": "btp_subaccount_environment_instance",
+            "btp:index/subaccountRoleCollection:SubaccountRoleCollection": "btp_subaccount_role_collection",
+            "btp:index/subaccountRoleCollectionAssignment:SubaccountRoleCollectionAssignment": "btp_subaccount_role_collection_assignment",
+            "btp:index/subaccountServiceBinding:SubaccountServiceBinding": "btp_subaccount_service_binding",
+            "btp:index/subaccountServiceInstance:SubaccountServiceInstance": "btp_subaccount_service_instance",
+            "btp:index/subaccountSubscription:SubaccountSubscription": "btp_subaccount_subscription",
+            "btp:index/subaccountTrustConfiguration:SubaccountTrustConfiguration": "btp_subaccount_trust_configuration"
+        },
+        "functions": {
+            "btp:index/getDirectory:getDirectory": "btp_directory",
+            "btp:index/getDirectoryEntitlements:getDirectoryEntitlements": "btp_directory_entitlements",
+            "btp:index/getDirectoryLabels:getDirectoryLabels": "btp_directory_labels",
+            "btp:index/getDirectoryRole:getDirectoryRole": "btp_directory_role",
+            "btp:index/getDirectoryRoleCollection:getDirectoryRoleCollection": "btp_directory_role_collection",
+            "btp:index/getDirectoryRoleCollections:getDirectoryRoleCollections": "btp_directory_role_collections",
+            "btp:index/getDirectoryRoles:getDirectoryRoles": "btp_directory_roles",
+            "btp:index/getDirectoryUser:getDirectoryUser": "btp_directory_user",
+            "btp:index/getDirectoryUsers:getDirectoryUsers": "btp_directory_users",
+            "btp:index/getGlobalaccount:getGlobalaccount": "btp_globalaccount",
+            "btp:index/getGlobalaccountEntitlements:getGlobalaccountEntitlements": "btp_globalaccount_entitlements",
+            "btp:index/getGlobalaccountRole:getGlobalaccountRole": "btp_globalaccount_role",
+            "btp:index/getGlobalaccountRoleCollection:getGlobalaccountRoleCollection": "btp_globalaccount_role_collection",
+            "btp:index/getGlobalaccountRoleCollections:getGlobalaccountRoleCollections": "btp_globalaccount_role_collections",
+            "btp:index/getGlobalaccountRoles:getGlobalaccountRoles": "btp_globalaccount_roles",
+            "btp:index/getGlobalaccountTrustConfiguration:getGlobalaccountTrustConfiguration": "btp_globalaccount_trust_configuration",
+            "btp:index/getGlobalaccountTrustConfigurations:getGlobalaccountTrustConfigurations": "btp_globalaccount_trust_configurations",
+            "btp:index/getGlobalaccountUser:getGlobalaccountUser": "btp_globalaccount_user",
+            "btp:index/getGlobalaccountUsers:getGlobalaccountUsers": "btp_globalaccount_users",
+            "btp:index/getRegions:getRegions": "btp_regions",
+            "btp:index/getSubaccount:getSubaccount": "btp_subaccount",
+            "btp:index/getSubaccountApp:getSubaccountApp": "btp_subaccount_app",
+            "btp:index/getSubaccountApps:getSubaccountApps": "btp_subaccount_apps",
+            "btp:index/getSubaccountEntitlements:getSubaccountEntitlements": "btp_subaccount_entitlements",
+            "btp:index/getSubaccountEnvironmentInstance:getSubaccountEnvironmentInstance": "btp_subaccount_environment_instance",
+            "btp:index/getSubaccountEnvironmentInstances:getSubaccountEnvironmentInstances": "btp_subaccount_environment_instances",
+            "btp:index/getSubaccountEnvironments:getSubaccountEnvironments": "btp_subaccount_environments",
+            "btp:index/getSubaccountLabels:getSubaccountLabels": "btp_subaccount_labels",
+            "btp:index/getSubaccountRole:getSubaccountRole": "btp_subaccount_role",
+            "btp:index/getSubaccountRoleCollection:getSubaccountRoleCollection": "btp_subaccount_role_collection",
+            "btp:index/getSubaccountRoleCollections:getSubaccountRoleCollections": "btp_subaccount_role_collections",
+            "btp:index/getSubaccountRoles:getSubaccountRoles": "btp_subaccount_roles",
+            "btp:index/getSubaccountServiceBinding:getSubaccountServiceBinding": "btp_subaccount_service_binding",
+            "btp:index/getSubaccountServiceBindings:getSubaccountServiceBindings": "btp_subaccount_service_bindings",
+            "btp:index/getSubaccountServiceInstance:getSubaccountServiceInstance": "btp_subaccount_service_instance",
+            "btp:index/getSubaccountServiceInstances:getSubaccountServiceInstances": "btp_subaccount_service_instances",
+            "btp:index/getSubaccountServiceOffering:getSubaccountServiceOffering": "btp_subaccount_service_offering",
+            "btp:index/getSubaccountServiceOfferings:getSubaccountServiceOfferings": "btp_subaccount_service_offerings",
+            "btp:index/getSubaccountServicePlan:getSubaccountServicePlan": "btp_subaccount_service_plan",
+            "btp:index/getSubaccountServicePlans:getSubaccountServicePlans": "btp_subaccount_service_plans",
+            "btp:index/getSubaccountSubscription:getSubaccountSubscription": "btp_subaccount_subscription",
+            "btp:index/getSubaccountSubscriptions:getSubaccountSubscriptions": "btp_subaccount_subscriptions",
+            "btp:index/getSubaccountTrustConfiguration:getSubaccountTrustConfiguration": "btp_subaccount_trust_configuration",
+            "btp:index/getSubaccountTrustConfigurations:getSubaccountTrustConfigurations": "btp_subaccount_trust_configurations",
+            "btp:index/getSubaccountUser:getSubaccountUser": "btp_subaccount_user",
+            "btp:index/getSubaccountUsers:getSubaccountUsers": "btp_subaccount_users",
+            "btp:index/getSubaccounts:getSubaccounts": "btp_subaccounts",
+            "btp:index/getWhoami:getWhoami": "btp_whoami"
+        },
+        "renamedProperties": {
+            "btp:index/DirectoryRoleCollectionRole:DirectoryRoleCollectionRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/GlobalaccountRoleCollectionRole:GlobalaccountRoleCollectionRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/SubaccountRoleCollectionRole:SubaccountRoleCollectionRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/directory:Directory": {
+                "createdBy": "created_by",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "parentId": "parent_id"
+            },
+            "btp:index/directoryEntitlement:DirectoryEntitlement": {
+                "autoAssign": "auto_assign",
+                "autoDistributeAmount": "auto_distribute_amount",
+                "directoryId": "directory_id",
+                "planId": "plan_id",
+                "planName": "plan_name",
+                "serviceName": "service_name"
+            },
+            "btp:index/directoryRoleCollection:DirectoryRoleCollection": {
+                "directoryId": "directory_id"
+            },
+            "btp:index/directoryRoleCollectionAssignment:DirectoryRoleCollectionAssignment": {
+                "attributeName": "attribute_name",
+                "attributeValue": "attribute_value",
+                "directoryId": "directory_id",
+                "groupName": "group_name",
+                "roleCollectionName": "role_collection_name",
+                "userName": "user_name"
+            },
+            "btp:index/getDirectory:getDirectory": {
+                "createdBy": "created_by",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "parentId": "parent_id"
+            },
+            "btp:index/getDirectoryEntitlements:getDirectoryEntitlements": {
+                "directoryId": "directory_id"
+            },
+            "btp:index/getDirectoryEntitlementsValues:getDirectoryEntitlementsValues": {
+                "planDescription": "plan_description",
+                "planDisplayName": "plan_display_name",
+                "planName": "plan_name",
+                "quotaAssigned": "quota_assigned",
+                "quotaRemaining": "quota_remaining",
+                "serviceDisplayName": "service_display_name",
+                "serviceName": "service_name"
+            },
+            "btp:index/getDirectoryLabels:getDirectoryLabels": {
+                "directoryId": "directory_id"
+            },
+            "btp:index/getDirectoryRole:getDirectoryRole": {
+                "appId": "app_id",
+                "directoryId": "directory_id",
+                "readOnly": "read_only",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getDirectoryRoleCollection:getDirectoryRoleCollection": {
+                "directoryId": "directory_id",
+                "readOnly": "read_only"
+            },
+            "btp:index/getDirectoryRoleCollectionRole:getDirectoryRoleCollectionRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getDirectoryRoleCollections:getDirectoryRoleCollections": {
+                "directoryId": "directory_id"
+            },
+            "btp:index/getDirectoryRoleCollectionsValue:getDirectoryRoleCollectionsValue": {
+                "readOnly": "read_only"
+            },
+            "btp:index/getDirectoryRoleCollectionsValueRole:getDirectoryRoleCollectionsValueRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getDirectoryRoleScope:getDirectoryRoleScope": {
+                "customGrantAsAuthorityToApps": "custom_grant_as_authority_to_apps",
+                "customGrantedApps": "custom_granted_apps",
+                "grantAsAuthorityToApps": "grant_as_authority_to_apps",
+                "grantedApps": "granted_apps"
+            },
+            "btp:index/getDirectoryRoles:getDirectoryRoles": {
+                "directoryId": "directory_id"
+            },
+            "btp:index/getDirectoryRolesValue:getDirectoryRolesValue": {
+                "appId": "app_id",
+                "appName": "app_name",
+                "readOnly": "read_only",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getDirectoryRolesValueScope:getDirectoryRolesValueScope": {
+                "customGrantAsAuthorityToApps": "custom_grant_as_authority_to_apps",
+                "customGrantedApps": "custom_granted_apps",
+                "grantAsAuthorityToApps": "grant_as_authority_to_apps",
+                "grantedApps": "granted_apps"
+            },
+            "btp:index/getDirectoryUser:getDirectoryUser": {
+                "directoryId": "directory_id",
+                "familyName": "family_name",
+                "givenName": "given_name",
+                "roleCollections": "role_collections",
+                "userName": "user_name"
+            },
+            "btp:index/getDirectoryUsers:getDirectoryUsers": {
+                "directoryId": "directory_id"
+            },
+            "btp:index/getGlobalaccount:getGlobalaccount": {
+                "commercialModel": "commercial_model",
+                "consumptionBased": "consumption_based",
+                "contractStatus": "contract_status",
+                "costobjectId": "costobject_id",
+                "costobjectType": "costobject_type",
+                "createdDate": "created_date",
+                "crmCustomerId": "crm_customer_id",
+                "crmTenantId": "crm_tenant_id",
+                "expiryDate": "expiry_date",
+                "geoAccess": "geo_access",
+                "lastModified": "last_modified",
+                "licenseType": "license_type",
+                "renewalDate": "renewal_date",
+                "serviceId": "service_id"
+            },
+            "btp:index/getGlobalaccountEntitlementsValues:getGlobalaccountEntitlementsValues": {
+                "planDescription": "plan_description",
+                "planDisplayName": "plan_display_name",
+                "planName": "plan_name",
+                "quotaAssigned": "quota_assigned",
+                "quotaRemaining": "quota_remaining",
+                "serviceDisplayName": "service_display_name",
+                "serviceName": "service_name"
+            },
+            "btp:index/getGlobalaccountRole:getGlobalaccountRole": {
+                "appId": "app_id",
+                "readOnly": "read_only",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getGlobalaccountRoleCollection:getGlobalaccountRoleCollection": {
+                "readOnly": "read_only"
+            },
+            "btp:index/getGlobalaccountRoleCollectionRole:getGlobalaccountRoleCollectionRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getGlobalaccountRoleCollectionsValue:getGlobalaccountRoleCollectionsValue": {
+                "readOnly": "read_only"
+            },
+            "btp:index/getGlobalaccountRoleCollectionsValueRole:getGlobalaccountRoleCollectionsValueRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getGlobalaccountRoleScope:getGlobalaccountRoleScope": {
+                "customGrantAsAuthorityToApps": "custom_grant_as_authority_to_apps",
+                "customGrantedApps": "custom_granted_apps",
+                "grantAsAuthorityToApps": "grant_as_authority_to_apps",
+                "grantedApps": "granted_apps"
+            },
+            "btp:index/getGlobalaccountRolesValue:getGlobalaccountRolesValue": {
+                "appId": "app_id",
+                "appName": "app_name",
+                "readOnly": "read_only",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getGlobalaccountRolesValueScope:getGlobalaccountRolesValueScope": {
+                "customGrantAsAuthorityToApps": "custom_grant_as_authority_to_apps",
+                "customGrantedApps": "custom_granted_apps",
+                "grantAsAuthorityToApps": "grant_as_authority_to_apps",
+                "grantedApps": "granted_apps"
+            },
+            "btp:index/getGlobalaccountTrustConfiguration:getGlobalaccountTrustConfiguration": {
+                "identityProvider": "identity_provider",
+                "readOnly": "read_only"
+            },
+            "btp:index/getGlobalaccountTrustConfigurationsValue:getGlobalaccountTrustConfigurationsValue": {
+                "identityProvider": "identity_provider",
+                "readOnly": "read_only"
+            },
+            "btp:index/getGlobalaccountUser:getGlobalaccountUser": {
+                "familyName": "family_name",
+                "givenName": "given_name",
+                "roleCollections": "role_collections",
+                "userName": "user_name"
+            },
+            "btp:index/getRegionsValue:getRegionsValue": {
+                "iaasProvider": "iaas_provider",
+                "provisioningServiceUrl": "provisioning_service_url",
+                "saasRegistryServiceUrl": "saas_registry_service_url",
+                "supportsTrial": "supports_trial"
+            },
+            "btp:index/getSubaccount:getSubaccount": {
+                "betaEnabled": "beta_enabled",
+                "createdBy": "created_by",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "parentFeatures": "parent_features",
+                "parentId": "parent_id"
+            },
+            "btp:index/getSubaccountApp:getSubaccountApp": {
+                "foreignScopeReferences": "foreign_scope_references",
+                "masterAppId": "master_app_id",
+                "oauth2Configuration": "oauth2_configuration",
+                "orgId": "org_id",
+                "planId": "plan_id",
+                "planName": "plan_name",
+                "serviceinstanceId": "serviceinstance_id",
+                "spaceId": "space_id",
+                "subaccountId": "subaccount_id",
+                "tenantMode": "tenant_mode"
+            },
+            "btp:index/getSubaccountAppOauth2Configuration:getSubaccountAppOauth2Configuration": {
+                "grantTypes": "grant_types",
+                "redirectUris": "redirect_uris",
+                "refreshTokenValidity": "refresh_token_validity",
+                "systemAttributes": "system_attributes",
+                "tokenValidity": "token_validity"
+            },
+            "btp:index/getSubaccountApps:getSubaccountApps": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountAppsValue:getSubaccountAppsValue": {
+                "foreignScopeReferences": "foreign_scope_references",
+                "masterAppId": "master_app_id",
+                "oauth2Configuration": "oauth2_configuration",
+                "orgId": "org_id",
+                "planId": "plan_id",
+                "planName": "plan_name",
+                "serviceinstanceId": "serviceinstance_id",
+                "spaceId": "space_id",
+                "tenantMode": "tenant_mode"
+            },
+            "btp:index/getSubaccountAppsValueOauth2Configuration:getSubaccountAppsValueOauth2Configuration": {
+                "grantTypes": "grant_types",
+                "redirectUris": "redirect_uris",
+                "refreshTokenValidity": "refresh_token_validity",
+                "systemAttributes": "system_attributes",
+                "tokenValidity": "token_validity"
+            },
+            "btp:index/getSubaccountEntitlements:getSubaccountEntitlements": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountEntitlementsValues:getSubaccountEntitlementsValues": {
+                "planDescription": "plan_description",
+                "planDisplayName": "plan_display_name",
+                "planName": "plan_name",
+                "quotaAssigned": "quota_assigned",
+                "quotaRemaining": "quota_remaining",
+                "serviceDisplayName": "service_display_name",
+                "serviceName": "service_name"
+            },
+            "btp:index/getSubaccountEnvironmentInstance:getSubaccountEnvironmentInstance": {
+                "brokerId": "broker_id",
+                "createdDate": "created_date",
+                "customLabels": "custom_labels",
+                "dashboardUrl": "dashboard_url",
+                "environmentType": "environment_type",
+                "landscapeLabel": "landscape_label",
+                "lastModified": "last_modified",
+                "planId": "plan_id",
+                "planName": "plan_name",
+                "platformId": "platform_id",
+                "serviceId": "service_id",
+                "serviceName": "service_name",
+                "subaccountId": "subaccount_id",
+                "tenantId": "tenant_id"
+            },
+            "btp:index/getSubaccountEnvironmentInstances:getSubaccountEnvironmentInstances": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountEnvironmentInstancesValue:getSubaccountEnvironmentInstancesValue": {
+                "brokerId": "broker_id",
+                "createdDate": "created_date",
+                "customLabels": "custom_labels",
+                "dashboardUrl": "dashboard_url",
+                "environmentType": "environment_type",
+                "landscapeLabel": "landscape_label",
+                "lastModified": "last_modified",
+                "planId": "plan_id",
+                "planName": "plan_name",
+                "platformId": "platform_id",
+                "serviceId": "service_id",
+                "serviceName": "service_name",
+                "tenantId": "tenant_id"
+            },
+            "btp:index/getSubaccountEnvironments:getSubaccountEnvironments": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountEnvironmentsValue:getSubaccountEnvironmentsValue": {
+                "availabilityLevel": "availability_level",
+                "environmentType": "environment_type",
+                "landscapeLabel": "landscape_label",
+                "planName": "plan_name",
+                "planUpdateable": "plan_updateable",
+                "schemaCreate": "schema_create",
+                "schemaUpdate": "schema_update",
+                "serviceDescription": "service_description",
+                "serviceDisplayName": "service_display_name",
+                "serviceName": "service_name",
+                "technicalKey": "technical_key"
+            },
+            "btp:index/getSubaccountLabels:getSubaccountLabels": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountRole:getSubaccountRole": {
+                "appId": "app_id",
+                "readOnly": "read_only",
+                "roleTemplateName": "role_template_name",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountRoleCollection:getSubaccountRoleCollection": {
+                "readOnly": "read_only",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountRoleCollectionRole:getSubaccountRoleCollectionRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getSubaccountRoleCollections:getSubaccountRoleCollections": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountRoleCollectionsValue:getSubaccountRoleCollectionsValue": {
+                "readOnly": "read_only"
+            },
+            "btp:index/getSubaccountRoleCollectionsValueRole:getSubaccountRoleCollectionsValueRole": {
+                "roleTemplateAppId": "role_template_app_id",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getSubaccountRoleScope:getSubaccountRoleScope": {
+                "customGrantAsAuthorityToApps": "custom_grant_as_authority_to_apps",
+                "customGrantedApps": "custom_granted_apps",
+                "grantAsAuthorityToApps": "grant_as_authority_to_apps",
+                "grantedApps": "granted_apps"
+            },
+            "btp:index/getSubaccountRoles:getSubaccountRoles": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountRolesValue:getSubaccountRolesValue": {
+                "appId": "app_id",
+                "appName": "app_name",
+                "readOnly": "read_only",
+                "roleTemplateName": "role_template_name"
+            },
+            "btp:index/getSubaccountRolesValueScope:getSubaccountRolesValueScope": {
+                "customGrantAsAuthorityToApps": "custom_grant_as_authority_to_apps",
+                "customGrantedApps": "custom_granted_apps",
+                "grantAsAuthorityToApps": "grant_as_authority_to_apps",
+                "grantedApps": "granted_apps"
+            },
+            "btp:index/getSubaccountServiceBinding:getSubaccountServiceBinding": {
+                "bindResource": "bind_resource",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "serviceInstanceId": "service_instance_id",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServiceBindings:getSubaccountServiceBindings": {
+                "fieldsFilter": "fields_filter",
+                "labelsFilter": "labels_filter",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServiceBindingsValue:getSubaccountServiceBindingsValue": {
+                "bindResource": "bind_resource",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "serviceInstanceId": "service_instance_id"
+            },
+            "btp:index/getSubaccountServiceInstance:getSubaccountServiceInstance": {
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "platformId": "platform_id",
+                "referencedInstanceId": "referenced_instance_id",
+                "serviceplanId": "serviceplan_id",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServiceInstances:getSubaccountServiceInstances": {
+                "fieldsFilter": "fields_filter",
+                "labelsFilter": "labels_filter",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServiceInstancesValue:getSubaccountServiceInstancesValue": {
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "platformId": "platform_id",
+                "serviceplanId": "serviceplan_id"
+            },
+            "btp:index/getSubaccountServiceOffering:getSubaccountServiceOffering": {
+                "allowContextUpdates": "allow_context_updates",
+                "bindingsRetrievable": "bindings_retrievable",
+                "brokerId": "broker_id",
+                "catalogId": "catalog_id",
+                "catalogName": "catalog_name",
+                "createdDate": "created_date",
+                "instancesRetrievable": "instances_retrievable",
+                "lastModified": "last_modified",
+                "planUpdateable": "plan_updateable",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServiceOfferings:getSubaccountServiceOfferings": {
+                "fieldsFilter": "fields_filter",
+                "labelsFilter": "labels_filter",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServiceOfferingsValue:getSubaccountServiceOfferingsValue": {
+                "allowContextUpdates": "allow_context_updates",
+                "bindingsRetrievable": "bindings_retrievable",
+                "brokerId": "broker_id",
+                "catalogId": "catalog_id",
+                "catalogName": "catalog_name",
+                "createdDate": "created_date",
+                "instancesRetrievable": "instances_retrievable",
+                "lastModified": "last_modified",
+                "planUpdateable": "plan_updateable"
+            },
+            "btp:index/getSubaccountServicePlan:getSubaccountServicePlan": {
+                "catalogId": "catalog_id",
+                "catalogName": "catalog_name",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "offeringName": "offering_name",
+                "serviceofferingId": "serviceoffering_id",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServicePlans:getSubaccountServicePlans": {
+                "fieldsFilter": "fields_filter",
+                "labelsFilter": "labels_filter",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountServicePlansValue:getSubaccountServicePlansValue": {
+                "catalogId": "catalog_id",
+                "catalogName": "catalog_name",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "serviceofferingId": "serviceoffering_id"
+            },
+            "btp:index/getSubaccountSubscription:getSubaccountSubscription": {
+                "additionalPlanFeatures": "additional_plan_features",
+                "appId": "app_id",
+                "appName": "app_name",
+                "authenticationProvider": "authentication_provider",
+                "commercialAppName": "commercial_app_name",
+                "createdDate": "created_date",
+                "customerDeveloped": "customer_developed",
+                "displayName": "display_name",
+                "formationSolutionName": "formation_solution_name",
+                "globalaccountId": "globalaccount_id",
+                "lastModified": "last_modified",
+                "planName": "plan_name",
+                "platformEntityId": "platform_entity_id",
+                "subaccountId": "subaccount_id",
+                "subscribedSubaccountId": "subscribed_subaccount_id",
+                "subscribedTenantId": "subscribed_tenant_id",
+                "subscriptionUrl": "subscription_url",
+                "supportsParametersUpdates": "supports_parameters_updates",
+                "supportsPlanUpdates": "supports_plan_updates",
+                "tenantId": "tenant_id"
+            },
+            "btp:index/getSubaccountSubscriptions:getSubaccountSubscriptions": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountSubscriptionsValue:getSubaccountSubscriptionsValue": {
+                "additionalPlanFeatures": "additional_plan_features",
+                "appId": "app_id",
+                "appName": "app_name",
+                "authenticationProvider": "authentication_provider",
+                "automationState": "automation_state",
+                "automationStateMessage": "automation_state_message",
+                "categoryDisplayName": "category_display_name",
+                "commercialAppName": "commercial_app_name",
+                "createdDate": "created_date",
+                "customerDeveloped": "customer_developed",
+                "displayName": "display_name",
+                "formationSolutionName": "formation_solution_name",
+                "globalaccountId": "globalaccount_id",
+                "incidentTrackingComponent": "incident_tracking_component",
+                "lastModified": "last_modified",
+                "planDescription": "plan_description",
+                "planName": "plan_name",
+                "platformEntityId": "platform_entity_id",
+                "shortDescription": "short_description",
+                "subscribedSubaccountId": "subscribed_subaccount_id",
+                "subscribedTenantId": "subscribed_tenant_id",
+                "subscriptionUrl": "subscription_url",
+                "supportsParametersUpdates": "supports_parameters_updates",
+                "supportsPlanUpdates": "supports_plan_updates",
+                "tenantId": "tenant_id"
+            },
+            "btp:index/getSubaccountTrustConfiguration:getSubaccountTrustConfiguration": {
+                "autoCreateShadowUsers": "auto_create_shadow_users",
+                "availableForUserLogon": "available_for_user_logon",
+                "identityProvider": "identity_provider",
+                "linkText": "link_text",
+                "readOnly": "read_only",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountTrustConfigurations:getSubaccountTrustConfigurations": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccountTrustConfigurationsValue:getSubaccountTrustConfigurationsValue": {
+                "autoCreateShadowUsers": "auto_create_shadow_users",
+                "availableForUserLogon": "available_for_user_logon",
+                "identityProvider": "identity_provider",
+                "linkText": "link_text",
+                "readOnly": "read_only"
+            },
+            "btp:index/getSubaccountUser:getSubaccountUser": {
+                "familyName": "family_name",
+                "givenName": "given_name",
+                "roleCollections": "role_collections",
+                "subaccountId": "subaccount_id",
+                "userName": "user_name"
+            },
+            "btp:index/getSubaccountUsers:getSubaccountUsers": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/getSubaccounts:getSubaccounts": {
+                "labelsFilter": "labels_filter"
+            },
+            "btp:index/getSubaccountsValue:getSubaccountsValue": {
+                "betaEnabled": "beta_enabled",
+                "createdBy": "created_by",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "parentFeatures": "parent_features",
+                "parentId": "parent_id"
+            },
+            "btp:index/globalaccountResourceProvider:GlobalaccountResourceProvider": {
+                "displayName": "display_name",
+                "providerType": "provider_type",
+                "technicalName": "technical_name"
+            },
+            "btp:index/globalaccountRoleCollectionAssignment:GlobalaccountRoleCollectionAssignment": {
+                "attributeName": "attribute_name",
+                "attributeValue": "attribute_value",
+                "groupName": "group_name",
+                "roleCollectionName": "role_collection_name",
+                "userName": "user_name"
+            },
+            "btp:index/globalaccountTrustConfiguration:GlobalaccountTrustConfiguration": {
+                "identityProvider": "identity_provider",
+                "readOnly": "read_only"
+            },
+            "btp:index/subaccount:Subaccount": {
+                "betaEnabled": "beta_enabled",
+                "createdBy": "created_by",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "parentFeatures": "parent_features",
+                "parentId": "parent_id"
+            },
+            "btp:index/subaccountEntitlement:SubaccountEntitlement": {
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "planId": "plan_id",
+                "planName": "plan_name",
+                "serviceName": "service_name",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance": {
+                "brokerId": "broker_id",
+                "createdDate": "created_date",
+                "customLabels": "custom_labels",
+                "dashboardUrl": "dashboard_url",
+                "environmentType": "environment_type",
+                "landscapeLabel": "landscape_label",
+                "lastModified": "last_modified",
+                "planId": "plan_id",
+                "planName": "plan_name",
+                "platformId": "platform_id",
+                "serviceId": "service_id",
+                "serviceName": "service_name",
+                "subaccountId": "subaccount_id",
+                "tenantId": "tenant_id"
+            },
+            "btp:index/subaccountRoleCollection:SubaccountRoleCollection": {
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/subaccountRoleCollectionAssignment:SubaccountRoleCollectionAssignment": {
+                "attributeName": "attribute_name",
+                "attributeValue": "attribute_value",
+                "groupName": "group_name",
+                "roleCollectionName": "role_collection_name",
+                "subaccountId": "subaccount_id",
+                "userName": "user_name"
+            },
+            "btp:index/subaccountServiceBinding:SubaccountServiceBinding": {
+                "bindResource": "bind_resource",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "serviceInstanceId": "service_instance_id",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/subaccountServiceInstance:SubaccountServiceInstance": {
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "platformId": "platform_id",
+                "referencedInstanceId": "referenced_instance_id",
+                "serviceplanId": "serviceplan_id",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index/subaccountSubscription:SubaccountSubscription": {
+                "additionalPlanFeatures": "additional_plan_features",
+                "appId": "app_id",
+                "appName": "app_name",
+                "authenticationProvider": "authentication_provider",
+                "commercialAppName": "commercial_app_name",
+                "createdDate": "created_date",
+                "customerDeveloped": "customer_developed",
+                "displayName": "display_name",
+                "formationSolutionName": "formation_solution_name",
+                "globalaccountId": "globalaccount_id",
+                "lastModified": "last_modified",
+                "planName": "plan_name",
+                "platformEntityId": "platform_entity_id",
+                "subaccountId": "subaccount_id",
+                "subscribedSubaccountId": "subscribed_subaccount_id",
+                "subscribedTenantId": "subscribed_tenant_id",
+                "subscriptionUrl": "subscription_url",
+                "supportsParametersUpdates": "supports_parameters_updates",
+                "supportsPlanUpdates": "supports_plan_updates",
+                "tenantId": "tenant_id"
+            },
+            "btp:index/subaccountTrustConfiguration:SubaccountTrustConfiguration": {
+                "autoCreateShadowUsers": "auto_create_shadow_users",
+                "availableForUserLogon": "available_for_user_logon",
+                "identityProvider": "identity_provider",
+                "linkText": "link_text",
+                "readOnly": "read_only",
+                "subaccountId": "subaccount_id"
+            },
+            "btp:index:Provider": {
+                "cliServerUrl": "cli_server_url",
+                "tlsClientCertificate": "tls_client_certificate",
+                "tlsClientKey": "tls_client_key",
+                "tlsIdpUrl": "tls_idp_url"
+            }
+        },
+        "renamedConfigProperties": {
+            "cliServerUrl": "cli_server_url",
+            "tlsClientCertificate": "tls_client_certificate",
+            "tlsClientKey": "tls_client_key",
+            "tlsIdpUrl": "tls_idp_url"
+        }
+    }
+}

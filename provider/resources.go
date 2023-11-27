@@ -224,7 +224,7 @@ func Provider() tfbridge.ProviderInfo {
 			GenerateResourceContainerTypes: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
-			RootNamespace: "Lechnerc77-pulumi-btp",
+			RootNamespace: "PulumiBtp",
 
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",

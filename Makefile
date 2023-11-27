@@ -96,6 +96,15 @@ build_java:: $(WORKING_DIR)/bin/$(JAVA_GEN)
 $(WORKING_DIR)/bin/$(JAVA_GEN)::
 	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
 
+build_java2:: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
+build_java2:: $(WORKING_DIR)/bin/$(JAVA_GEN)
+	cd sdk/java/ && \
+		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
+		gradle --console=plain build
+
+$(WORKING_DIR)/bin/$(JAVA_GEN)::
+	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
+
 lint_provider:: provider # lint the provider code
 	cd provider && golangci-lint run -c ../.golangci.yml
 

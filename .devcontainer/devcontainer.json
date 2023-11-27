@@ -14,14 +14,22 @@
         "ghcr.io/devcontainers/features/python:1": {},
         "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers-contrib/features/typescript:2": {},
-        "ghcr.io/devcontainers/features/dotnet:2": {}
+        "ghcr.io/devcontainers/features/dotnet:2": {},
+        "ghcr.io/devcontainers/features/java:1": {
+            "installGradle": "true",
+            "installMaven": "true"	
+        }
     },
     "customizations": {
         "vscode": {
             "settings": {},
             "extensions": [
                 "golang.go",
-                "ms-vscode.makefile-tools"
+                "ms-vscode.makefile-tools",
+                "vscjava.vscode-java-pack",
+                "ms-dotnettools.csharp",
+                "ms-python.python",
+                "ms-python.vscode-pylance"
             ]
         },
         "codespaces": {}
