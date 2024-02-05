@@ -36,7 +36,7 @@ export function getGlobalaccountUser(args: GetGlobalaccountUserArgs, opts?: pulu
  */
 export interface GetGlobalaccountUserArgs {
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     origin?: string;
     /**
@@ -70,7 +70,7 @@ export interface GetGlobalaccountUserResult {
      */
     readonly id: string;
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     readonly origin: string;
     /**
@@ -113,7 +113,7 @@ export function getGlobalaccountUserOutput(args: GetGlobalaccountUserOutputArgs,
  */
 export interface GetGlobalaccountUserOutputArgs {
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**

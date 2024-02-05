@@ -35,7 +35,7 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly globalaccount!: pulumi.Output<string>;
     /**
-     * The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+     * The identity provider to be used for authentication (only required for custom idp).
      */
     public readonly idp!: pulumi.Output<string | undefined>;
     /**
@@ -110,7 +110,7 @@ export interface ProviderArgs {
      */
     globalaccount: pulumi.Input<string>;
     /**
-     * The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+     * The identity provider to be used for authentication (only required for custom idp).
      */
     idp?: pulumi.Input<string>;
     /**

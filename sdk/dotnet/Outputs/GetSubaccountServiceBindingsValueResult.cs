@@ -21,7 +21,7 @@ namespace PulumiBtp.Btp.Outputs
         /// <summary>
         /// Contextual data for the resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> Context;
+        public readonly string Context;
         /// <summary>
         /// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
         /// </summary>
@@ -59,7 +59,7 @@ namespace PulumiBtp.Btp.Outputs
         private GetSubaccountServiceBindingsValueResult(
             ImmutableDictionary<string, string> bindResource,
 
-            ImmutableDictionary<string, string> context,
+            string context,
 
             string createdDate,
 

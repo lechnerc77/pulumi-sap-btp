@@ -66,6 +66,21 @@ namespace PulumiBtp.Btp
     ///         },
     ///     });
     /// 
+    ///     // creates a cloud foundry environment in a given account
+    ///     // and the dedicted target landscape cf-us10
+    ///     var cloudfoundryBtpIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new Btp.SubaccountEnvironmentInstance("cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance", new()
+    ///     {
+    ///         SubaccountId = "6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f",
+    ///         EnvironmentType = "cloudfoundry",
+    ///         ServiceName = "cloudfoundry",
+    ///         LandscapeLabel = "cf-us10",
+    ///         PlanName = "standard",
+    ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["instance_name"] = "my-cf-org-name",
+    ///         }),
+    ///     });
+    /// 
     ///     // creates a kyma environment in a given account
     ///     // NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment
     ///     var kyma = new Btp.SubaccountEnvironmentInstance("kyma", new()

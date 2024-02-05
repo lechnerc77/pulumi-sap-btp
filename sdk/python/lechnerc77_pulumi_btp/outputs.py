@@ -16,6 +16,7 @@ __all__ = [
     'SubaccountEnvironmentInstanceTimeouts',
     'SubaccountRoleCollectionRole',
     'SubaccountServiceInstanceTimeouts',
+    'GetDirectoriesValueResult',
     'GetDirectoryEntitlementsValuesResult',
     'GetDirectoryRoleCollectionRoleResult',
     'GetDirectoryRoleCollectionsValueResult',
@@ -314,6 +315,110 @@ class SubaccountServiceInstanceTimeouts(dict):
         Timeout for updating the service instance.
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class GetDirectoriesValueResult(dict):
+    def __init__(__self__, *,
+                 created_by: str,
+                 created_date: str,
+                 description: str,
+                 features: Sequence[str],
+                 id: str,
+                 labels: Mapping[str, Sequence[str]],
+                 last_modified: str,
+                 name: str,
+                 parent_id: str,
+                 state: str,
+                 subdomain: str):
+        """
+        :param str created_by: The details of the user that created the directory.
+        :param str created_date: The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+        :param str description: The description of the directory.
+        :param Sequence[str] features: The features that are enabled for the directory. Possible values are:
+        :param str id: The ID of the directory.
+        """
+        pulumi.set(__self__, "created_by", created_by)
+        pulumi.set(__self__, "created_date", created_date)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "features", features)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "last_modified", last_modified)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parent_id", parent_id)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "subdomain", subdomain)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> str:
+        """
+        The details of the user that created the directory.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> str:
+        """
+        The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+        """
+        return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the directory.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Sequence[str]:
+        """
+        The features that are enabled for the directory. Possible values are:
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the directory.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Mapping[str, Sequence[str]]:
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parentId")
+    def parent_id(self) -> str:
+        return pulumi.get(self, "parent_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def subdomain(self) -> str:
+        return pulumi.get(self, "subdomain")
 
 
 @pulumi.output_type
@@ -2270,7 +2375,7 @@ class GetSubaccountRolesValueScopeResult(dict):
 class GetSubaccountServiceBindingsValueResult(dict):
     def __init__(__self__, *,
                  bind_resource: Mapping[str, str],
-                 context: Mapping[str, str],
+                 context: str,
                  created_date: str,
                  credentials: str,
                  id: str,
@@ -2281,7 +2386,7 @@ class GetSubaccountServiceBindingsValueResult(dict):
                  service_instance_id: str):
         """
         :param Mapping[str, str] bind_resource: Contains the resources associated with the binding.
-        :param Mapping[str, str] context: Contextual data for the resource.
+        :param str context: Contextual data for the resource.
         :param str created_date: The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
         :param str credentials: The credentials to access the binding.
         :param str id: The ID of the service binding.
@@ -2312,7 +2417,7 @@ class GetSubaccountServiceBindingsValueResult(dict):
 
     @property
     @pulumi.getter
-    def context(self) -> Mapping[str, str]:
+    def context(self) -> str:
         """
         Contextual data for the resource.
         """
@@ -2386,7 +2491,7 @@ class GetSubaccountServiceBindingsValueResult(dict):
 @pulumi.output_type
 class GetSubaccountServiceInstancesValueResult(dict):
     def __init__(__self__, *,
-                 context: Mapping[str, str],
+                 context: str,
                  created_date: str,
                  id: str,
                  labels: Mapping[str, Sequence[str]],
@@ -2397,7 +2502,7 @@ class GetSubaccountServiceInstancesValueResult(dict):
                  serviceplan_id: str,
                  usable: bool):
         """
-        :param Mapping[str, str] context: Contextual data for the resource.
+        :param str context: Contextual data for the resource.
         :param str created_date: The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
         :param str id: The ID of the service instance.
         :param Mapping[str, Sequence[str]] labels: The set of words or phrases assigned to the service instance.
@@ -2420,7 +2525,7 @@ class GetSubaccountServiceInstancesValueResult(dict):
 
     @property
     @pulumi.getter
-    def context(self) -> Mapping[str, str]:
+    def context(self) -> str:
         """
         Contextual data for the resource.
         """

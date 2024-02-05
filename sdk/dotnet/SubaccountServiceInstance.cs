@@ -62,15 +62,13 @@ namespace PulumiBtp.Btp
     /// 
     /// ## Import
     /// 
-    /// terraform
+    /// ### Restriction The import of service instances that can be configured via parameters only works if the corresponding service offering supports the retrieval of these parameters, which means that the `instances_retrievable` parameter of the service offering must be set to `true`. You can check this setting via the following data sourceterraform data "btp_subaccount_service_offering" "by_name" {
     /// 
-    /// ```sh
-    ///  $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance &lt;resource_name&gt; &lt;subaccount_id&gt;,&lt;service_instance_id&gt;
-    /// ```
+    ///  subaccount_id = &lt;ID of your subaccount&gt;
     /// 
-    /// ```sh
-    ///  $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance alert_notification_free 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,6a55f158-41b5-4e63-aa77-84089fa0ab98
-    /// ```
+    ///  name
+    /// 
+    /// = &lt;name of the service offering&gt; }
     /// </summary>
     [BtpResourceType("btp:index/subaccountServiceInstance:SubaccountServiceInstance")]
     public partial class SubaccountServiceInstance : global::Pulumi.CustomResource
@@ -79,7 +77,7 @@ namespace PulumiBtp.Btp
         /// Contextual data for the resource.
         /// </summary>
         [Output("context")]
-        public Output<ImmutableDictionary<string, string>> Context { get; private set; } = null!;
+        public Output<string> Context { get; private set; } = null!;
 
         /// <summary>
         /// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
@@ -267,17 +265,11 @@ namespace PulumiBtp.Btp
 
     public sealed class SubaccountServiceInstanceState : global::Pulumi.ResourceArgs
     {
-        [Input("context")]
-        private InputMap<string>? _context;
-
         /// <summary>
         /// Contextual data for the resource.
         /// </summary>
-        public InputMap<string> Context
-        {
-            get => _context ?? (_context = new InputMap<string>());
-            set => _context = value;
-        }
+        [Input("context")]
+        public Input<string>? Context { get; set; }
 
         /// <summary>
         /// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.

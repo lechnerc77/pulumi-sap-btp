@@ -58,7 +58,7 @@ export interface GetSubaccountServiceInstanceResult {
     /**
      * Contextual data for the resource.
      */
-    readonly context: {[key: string]: string};
+    readonly context: string;
     /**
      * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
      */

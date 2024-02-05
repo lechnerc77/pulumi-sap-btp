@@ -70,7 +70,7 @@ type LookupSubaccountServiceInstanceArgs struct {
 // A collection of values returned by getSubaccountServiceInstance.
 type LookupSubaccountServiceInstanceResult struct {
 	// Contextual data for the resource.
-	Context map[string]string `pulumi:"context"`
+	Context string `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate string `pulumi:"createdDate"`
 	// The ID of the service instance.
@@ -149,8 +149,8 @@ func (o LookupSubaccountServiceInstanceResultOutput) ToOutput(ctx context.Contex
 }
 
 // Contextual data for the resource.
-func (o LookupSubaccountServiceInstanceResultOutput) Context() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupSubaccountServiceInstanceResult) map[string]string { return v.Context }).(pulumi.StringMapOutput)
+func (o LookupSubaccountServiceInstanceResultOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubaccountServiceInstanceResult) string { return v.Context }).(pulumi.StringOutput)
 }
 
 // The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.

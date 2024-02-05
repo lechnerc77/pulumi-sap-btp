@@ -50,7 +50,7 @@ class GetSubaccountUsersResult:
     @pulumi.getter
     def origin(self) -> str:
         """
-        The identity provider that hosts the user. The default value is 'ldap'.
+        The identity provider that hosts the user. Only needed for custom identity provider.
         """
         return pulumi.get(self, "origin")
 
@@ -104,7 +104,7 @@ def get_subaccount_users(origin: Optional[str] = None,
     ```
 
 
-    :param str origin: The identity provider that hosts the user. The default value is 'ldap'.
+    :param str origin: The identity provider that hosts the user. Only needed for custom identity provider.
     :param str subaccount_id: The ID of the subaccount.
     """
     __args__ = dict()
@@ -142,7 +142,7 @@ def get_subaccount_users_output(origin: Optional[pulumi.Input[Optional[str]]] = 
     ```
 
 
-    :param str origin: The identity provider that hosts the user. The default value is 'ldap'.
+    :param str origin: The identity provider that hosts the user. Only needed for custom identity provider.
     :param str subaccount_id: The ID of the subaccount.
     """
     ...

@@ -62,7 +62,7 @@ func GetDirectoryUser(ctx *pulumi.Context, args *GetDirectoryUserArgs, opts ...p
 type GetDirectoryUserArgs struct {
 	// The ID of the directory.
 	DirectoryId string `pulumi:"directoryId"`
-	// The identity provider that hosts the user. The default value is 'ldap'
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin *string `pulumi:"origin"`
 	// The username of the user.
 	UserName string `pulumi:"userName"`
@@ -82,7 +82,7 @@ type GetDirectoryUserResult struct {
 	GivenName string `pulumi:"givenName"`
 	// The ID of the user.
 	Id string `pulumi:"id"`
-	// The identity provider that hosts the user. The default value is 'ldap'
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin string `pulumi:"origin"`
 	// The set of role collections, which are assigned to the user.
 	RoleCollections []string `pulumi:"roleCollections"`
@@ -109,7 +109,7 @@ func GetDirectoryUserOutput(ctx *pulumi.Context, args GetDirectoryUserOutputArgs
 type GetDirectoryUserOutputArgs struct {
 	// The ID of the directory.
 	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
-	// The identity provider that hosts the user. The default value is 'ldap'
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin pulumi.StringPtrInput `pulumi:"origin"`
 	// The username of the user.
 	UserName pulumi.StringInput `pulumi:"userName"`
@@ -170,7 +170,7 @@ func (o GetDirectoryUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The identity provider that hosts the user. The default value is 'ldap'
+// The identity provider that hosts the user. Only needed for custom identity provider.
 func (o GetDirectoryUserResultOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryUserResult) string { return v.Origin }).(pulumi.StringOutput)
 }

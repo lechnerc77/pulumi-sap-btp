@@ -62,7 +62,7 @@ namespace PulumiBtp.Btp
         public Output<string?> GroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The identity provider that hosts the user or group. The default value is `ldap`.
+        /// The identity provider that hosts the user or group. Only needed for custom identity provider.
         /// </summary>
         [Output("origin")]
         public Output<string> Origin { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace PulumiBtp.Btp
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// The identity provider that hosts the user or group. The default value is `ldap`.
+        /// The identity provider that hosts the user or group. Only needed for custom identity provider.
         /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }
@@ -189,7 +189,7 @@ namespace PulumiBtp.Btp
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// The identity provider that hosts the user or group. The default value is `ldap`.
+        /// The identity provider that hosts the user or group. Only needed for custom identity provider.
         /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }

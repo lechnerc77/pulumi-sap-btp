@@ -114,7 +114,7 @@ class SubaccountServiceInstanceArgs:
 @pulumi.input_type
 class _SubaccountServiceInstanceState:
     def __init__(__self__, *,
-                 context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  last_modified: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class _SubaccountServiceInstanceState:
                  usable: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SubaccountServiceInstance resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] context: Contextual data for the resource.
+        :param pulumi.Input[str] context: Contextual data for the resource.
         :param pulumi.Input[str] created_date: The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] labels: The set of words or phrases assigned to the service instance.
         :param pulumi.Input[str] last_modified: The date and time when the resource was last modified in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
@@ -178,14 +178,14 @@ class _SubaccountServiceInstanceState:
 
     @property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def context(self) -> Optional[pulumi.Input[str]]:
         """
         Contextual data for the resource.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def context(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "context", value)
 
     @property
@@ -399,15 +399,13 @@ class SubaccountServiceInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform
+        ### Restriction The import of service instances that can be configured via parameters only works if the corresponding service offering supports the retrieval of these parameters, which means that the `instances_retrievable` parameter of the service offering must be set to `true`. You can check this setting via the following data sourceterraform data "btp_subaccount_service_offering" "by_name" {
 
-        ```sh
-         $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance <resource_name> <subaccount_id>,<service_instance_id>
-        ```
+         subaccount_id = <ID of your subaccount>
 
-        ```sh
-         $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance alert_notification_free 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,6a55f158-41b5-4e63-aa77-84089fa0ab98
-        ```
+         name
+
+        = <name of the service offering> }
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -459,15 +457,13 @@ class SubaccountServiceInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform
+        ### Restriction The import of service instances that can be configured via parameters only works if the corresponding service offering supports the retrieval of these parameters, which means that the `instances_retrievable` parameter of the service offering must be set to `true`. You can check this setting via the following data sourceterraform data "btp_subaccount_service_offering" "by_name" {
 
-        ```sh
-         $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance <resource_name> <subaccount_id>,<service_instance_id>
-        ```
+         subaccount_id = <ID of your subaccount>
 
-        ```sh
-         $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance alert_notification_free 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,6a55f158-41b5-4e63-aa77-84089fa0ab98
-        ```
+         name
+
+        = <name of the service offering> }
 
         :param str resource_name: The name of the resource.
         :param SubaccountServiceInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -530,7 +526,7 @@ class SubaccountServiceInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            context: Optional[pulumi.Input[str]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
             last_modified: Optional[pulumi.Input[str]] = None,
@@ -552,7 +548,7 @@ class SubaccountServiceInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] context: Contextual data for the resource.
+        :param pulumi.Input[str] context: Contextual data for the resource.
         :param pulumi.Input[str] created_date: The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] labels: The set of words or phrases assigned to the service instance.
         :param pulumi.Input[str] last_modified: The date and time when the resource was last modified in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
@@ -589,7 +585,7 @@ class SubaccountServiceInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def context(self) -> pulumi.Output[Mapping[str, str]]:
+    def context(self) -> pulumi.Output[str]:
         """
         Contextual data for the resource.
         """

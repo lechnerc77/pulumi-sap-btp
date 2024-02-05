@@ -22,7 +22,7 @@ func GetGlobalaccount(ctx *pulumi.Context) string {
 	return config.Get(ctx, "btp:globalaccount")
 }
 
-// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+// The identity provider to be used for authentication (only required for custom idp).
 func GetIdp(ctx *pulumi.Context) string {
 	return config.Get(ctx, "btp:idp")
 }

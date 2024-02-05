@@ -83,7 +83,7 @@ namespace PulumiBtp.Btp
         /// The tenant's domain which should be used for user logon.
         /// </summary>
         [Output("domain")]
-        public Output<string?> Domain { get; private set; } = null!;
+        public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Identity Authentication tenant that you want to connect to the subaccount.

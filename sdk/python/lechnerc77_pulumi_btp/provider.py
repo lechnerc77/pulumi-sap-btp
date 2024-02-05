@@ -28,7 +28,7 @@ class ProviderArgs:
         :param pulumi.Input[str] globalaccount: The subdomain of the global account in which you want to manage resources. To be found in the cockpit, in the global
                account view.
         :param pulumi.Input[str] cli_server_url: The URL of the BTP CLI server (e.g. `https://cli.btp.cloud.sap`).
-        :param pulumi.Input[str] idp: The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        :param pulumi.Input[str] idp: The identity provider to be used for authentication (only required for custom idp).
         :param pulumi.Input[str] idtoken: A valid id token. To be provided instead of 'username' and 'password'. This can also be sourced from the `BTP_IDTOKEN`
                environment variable. (SAP-internal usage only)
         :param pulumi.Input[str] password: Your password. Note that two-factor authentication is not supported. This can also be sourced from the `BTP_PASSWORD`
@@ -85,7 +85,7 @@ class ProviderArgs:
     @pulumi.getter
     def idp(self) -> Optional[pulumi.Input[str]]:
         """
-        The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        The identity provider to be used for authentication (only required for custom idp).
         """
         return pulumi.get(self, "idp")
 
@@ -194,7 +194,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] cli_server_url: The URL of the BTP CLI server (e.g. `https://cli.btp.cloud.sap`).
         :param pulumi.Input[str] globalaccount: The subdomain of the global account in which you want to manage resources. To be found in the cockpit, in the global
                account view.
-        :param pulumi.Input[str] idp: The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        :param pulumi.Input[str] idp: The identity provider to be used for authentication (only required for custom idp).
         :param pulumi.Input[str] idtoken: A valid id token. To be provided instead of 'username' and 'password'. This can also be sourced from the `BTP_IDTOKEN`
                environment variable. (SAP-internal usage only)
         :param pulumi.Input[str] password: Your password. Note that two-factor authentication is not supported. This can also be sourced from the `BTP_PASSWORD`
@@ -289,7 +289,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def idp(self) -> pulumi.Output[Optional[str]]:
         """
-        The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        The identity provider to be used for authentication (only required for custom idp).
         """
         return pulumi.get(self, "idp")
 

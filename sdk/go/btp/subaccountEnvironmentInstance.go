@@ -80,6 +80,24 @@ import (
 //				return err
 //			}
 //			tmpJSON2, err := json.Marshal(map[string]interface{}{
+//				"instance_name": "my-cf-org-name",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json2 := string(tmpJSON2)
+//			_, err = btp.NewSubaccountEnvironmentInstance(ctx, "cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance", &btp.SubaccountEnvironmentInstanceArgs{
+//				SubaccountId:    pulumi.String("6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f"),
+//				EnvironmentType: pulumi.String("cloudfoundry"),
+//				ServiceName:     pulumi.String("cloudfoundry"),
+//				LandscapeLabel:  pulumi.String("cf-us10"),
+//				PlanName:        pulumi.String("standard"),
+//				Parameters:      pulumi.String(json2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON3, err := json.Marshal(map[string]interface{}{
 //				"name":            "my-kyma-environment",
 //				"region":          "us-east-1",
 //				"machine_type":    "mx5.xlarge",
@@ -89,13 +107,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			json2 := string(tmpJSON2)
+//			json3 := string(tmpJSON3)
 //			_, err = btp.NewSubaccountEnvironmentInstance(ctx, "kyma", &btp.SubaccountEnvironmentInstanceArgs{
 //				SubaccountId:    pulumi.String("6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f"),
 //				EnvironmentType: pulumi.String("kyma"),
 //				ServiceName:     pulumi.String("kymaruntime"),
 //				PlanName:        pulumi.String("aws"),
-//				Parameters:      pulumi.String(json2),
+//				Parameters:      pulumi.String(json3),
 //				Timeouts: &btp.SubaccountEnvironmentInstanceTimeoutsArgs{
 //					Create: pulumi.String("1h"),
 //					Update: pulumi.String("35m"),

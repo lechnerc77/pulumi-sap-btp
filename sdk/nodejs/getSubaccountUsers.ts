@@ -39,7 +39,7 @@ export function getSubaccountUsers(args: GetSubaccountUsersArgs, opts?: pulumi.I
  */
 export interface GetSubaccountUsersArgs {
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'.
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     origin?: string;
     /**
@@ -59,7 +59,7 @@ export interface GetSubaccountUsersResult {
      */
     readonly id: string;
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'.
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     readonly origin: string;
     /**
@@ -101,7 +101,7 @@ export function getSubaccountUsersOutput(args: GetSubaccountUsersOutputArgs, opt
  */
 export interface GetSubaccountUsersOutputArgs {
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'.
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**

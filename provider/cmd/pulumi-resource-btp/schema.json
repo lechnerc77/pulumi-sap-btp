@@ -72,7 +72,7 @@
             },
             "idp": {
                 "type": "string",
-                "description": "The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).\n"
+                "description": "The identity provider to be used for authentication (only required for custom idp).\n"
             },
             "idtoken": {
                 "type": "string",
@@ -205,6 +205,76 @@
                 }
             },
             "type": "object"
+        },
+        "btp:index/getDirectoriesValue:getDirectoriesValue": {
+            "properties": {
+                "createdBy": {
+                    "type": "string",
+                    "description": "The details of the user that created the directory.\n"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "description": "The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the directory.\n"
+                },
+                "features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The features that are enabled for the directory. Possible values are:\n"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the directory.\n"
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "lastModified": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parentId": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "subdomain": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "createdBy",
+                "createdDate",
+                "description",
+                "features",
+                "id",
+                "labels",
+                "lastModified",
+                "name",
+                "parentId",
+                "state",
+                "subdomain"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
         },
         "btp:index/getDirectoryEntitlementsValues:getDirectoryEntitlementsValues": {
             "properties": {
@@ -1564,10 +1634,7 @@
                     "description": "Contains the resources associated with the binding.\n"
                 },
                 "context": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "type": "string",
                     "description": "Contextual data for the resource.\n"
                 },
                 "createdDate": {
@@ -1632,10 +1699,7 @@
         "btp:index/getSubaccountServiceInstancesValue:getSubaccountServiceInstancesValue": {
             "properties": {
                 "context": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "type": "string",
                     "description": "Contextual data for the resource.\n"
                 },
                 "createdDate": {
@@ -2213,7 +2277,7 @@
             },
             "idp": {
                 "type": "string",
-                "description": "The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).\n"
+                "description": "The identity provider to be used for authentication (only required for custom idp).\n"
             },
             "idtoken": {
                 "type": "string",
@@ -2256,7 +2320,7 @@
             },
             "idp": {
                 "type": "string",
-                "description": "The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).\n"
+                "description": "The identity provider to be used for authentication (only required for custom idp).\n"
             },
             "idtoken": {
                 "type": "string",
@@ -2672,7 +2736,7 @@
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The identity provider that hosts the user or a group. The default value is `ldap`.\n"
+                    "description": "The identity provider that hosts the user or a group. Only needed for custom identity provider.\n"
                 },
                 "roleCollectionName": {
                     "type": "string",
@@ -2707,7 +2771,7 @@
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The identity provider that hosts the user or a group. The default value is `ldap`.\n"
+                    "description": "The identity provider that hosts the user or a group. Only needed for custom identity provider.\n"
                 },
                 "roleCollectionName": {
                     "type": "string",
@@ -2743,7 +2807,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user or a group. The default value is `ldap`.\n"
+                        "description": "The identity provider that hosts the user or a group. Only needed for custom identity provider.\n"
                     },
                     "roleCollectionName": {
                         "type": "string",
@@ -2926,7 +2990,7 @@
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The identity provider that hosts the user or group. The default value is `ldap`.\n"
+                    "description": "The identity provider that hosts the user or group. Only needed for custom identity provider.\n"
                 },
                 "roleCollectionName": {
                     "type": "string",
@@ -2956,7 +3020,7 @@
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The identity provider that hosts the user or group. The default value is `ldap`.\n"
+                    "description": "The identity provider that hosts the user or group. Only needed for custom identity provider.\n"
                 },
                 "roleCollectionName": {
                     "type": "string",
@@ -2987,7 +3051,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user or group. The default value is `ldap`.\n"
+                        "description": "The identity provider that hosts the user or group. Only needed for custom identity provider.\n"
                     },
                     "roleCollectionName": {
                         "type": "string",
@@ -2996,6 +3060,95 @@
                     "userName": {
                         "type": "string",
                         "description": "The name of the user to assign.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "btp:index/globalaccountSecuritySettings:GlobalaccountSecuritySettings": {
+            "description": "Sets the security settings of a global account.\n\n__Tip:__\nYou must be administrator of the global account.\n\n__Further documentation:__\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-trusted-domains-for-sap-authorization-and-trust-management-service\u003e\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-token-policy-for-sap-authorization-and-trust-management-service\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@lechnerc77/pulumi-btp\";\n\nconst _this = new btp.GlobalaccountSecuritySettings(\"this\", {\n    accessTokenValidity: 3600,\n    customEmailDomains: [\"yourdomain.test\"],\n    defaultIdentityProvider: \"sap.custom\",\n    refreshTokenValidity: 3600,\n    treatUsersWithSameEmailAsSameUser: true,\n});\n```\n```python\nimport pulumi\nimport lechnerc77_pulumi_btp as btp\n\nthis = btp.GlobalaccountSecuritySettings(\"this\",\n    access_token_validity=3600,\n    custom_email_domains=[\"yourdomain.test\"],\n    default_identity_provider=\"sap.custom\",\n    refresh_token_validity=3600,\n    treat_users_with_same_email_as_same_user=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Btp = PulumiBtp.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = new Btp.GlobalaccountSecuritySettings(\"this\", new()\n    {\n        AccessTokenValidity = 3600,\n        CustomEmailDomains = new[]\n        {\n            \"yourdomain.test\",\n        },\n        DefaultIdentityProvider = \"sap.custom\",\n        RefreshTokenValidity = 3600,\n        TreatUsersWithSameEmailAsSameUser = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.NewGlobalaccountSecuritySettings(ctx, \"this\", \u0026btp.GlobalaccountSecuritySettingsArgs{\n\t\t\tAccessTokenValidity: pulumi.Int(3600),\n\t\t\tCustomEmailDomains: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"yourdomain.test\"),\n\t\t\t},\n\t\t\tDefaultIdentityProvider:           pulumi.String(\"sap.custom\"),\n\t\t\tRefreshTokenValidity:              pulumi.Int(3600),\n\t\t\tTreatUsersWithSameEmailAsSameUser: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.GlobalaccountSecuritySettings;\nimport com.pulumi.btp.GlobalaccountSecuritySettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var this_ = new GlobalaccountSecuritySettings(\"this\", GlobalaccountSecuritySettingsArgs.builder()        \n            .accessTokenValidity(3600)\n            .customEmailDomains(\"yourdomain.test\")\n            .defaultIdentityProvider(\"sap.custom\")\n            .refreshTokenValidity(3600)\n            .treatUsersWithSameEmailAsSameUser(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  this:\n    type: btp:GlobalaccountSecuritySettings\n    properties:\n      accessTokenValidity: 3600\n      customEmailDomains:\n        - yourdomain.test\n      defaultIdentityProvider: sap.custom\n      refreshTokenValidity: 3600\n      treatUsersWithSameEmailAsSameUser: true\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "accessTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the access token.\n"
+                },
+                "customEmailDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of domains that are allowed to be used for user authentication.\n"
+                },
+                "defaultIdentityProvider": {
+                    "type": "string",
+                    "description": "The global account's default identity provider for platform users. Used to log on to platform tools such as SAP BTP cockpit or the btp CLI.\n"
+                },
+                "refreshTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the refresh token.\n"
+                },
+                "treatUsersWithSameEmailAsSameUser": {
+                    "type": "boolean",
+                    "description": "If set to true, users with the same email are treated as same users.\n"
+                }
+            },
+            "required": [
+                "accessTokenValidity",
+                "customEmailDomains",
+                "defaultIdentityProvider",
+                "refreshTokenValidity",
+                "treatUsersWithSameEmailAsSameUser"
+            ],
+            "inputProperties": {
+                "accessTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the access token.\n"
+                },
+                "customEmailDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of domains that are allowed to be used for user authentication.\n"
+                },
+                "defaultIdentityProvider": {
+                    "type": "string",
+                    "description": "The global account's default identity provider for platform users. Used to log on to platform tools such as SAP BTP cockpit or the btp CLI.\n"
+                },
+                "refreshTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the refresh token.\n"
+                },
+                "treatUsersWithSameEmailAsSameUser": {
+                    "type": "boolean",
+                    "description": "If set to true, users with the same email are treated as same users.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GlobalaccountSecuritySettings resources.\n",
+                "properties": {
+                    "accessTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the access token.\n"
+                    },
+                    "customEmailDomains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of domains that are allowed to be used for user authentication.\n"
+                    },
+                    "defaultIdentityProvider": {
+                        "type": "string",
+                        "description": "The global account's default identity provider for platform users. Used to log on to platform tools such as SAP BTP cockpit or the btp CLI.\n"
+                    },
+                    "refreshTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the refresh token.\n"
+                    },
+                    "treatUsersWithSameEmailAsSameUser": {
+                        "type": "boolean",
+                        "description": "If set to true, users with the same email are treated as same users.\n"
                     }
                 },
                 "type": "object"
@@ -3429,7 +3582,7 @@
             }
         },
         "btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance": {
-            "description": "Creates an environment instance, such as a Cloud Foundry org, in a subaccount.\n\n__Tips:__\n* You must be assigned to the subaccount admin role.\n* Quota-based environments, such as Kyma, must first be assigned as entitlements to the subaccount.\n\n__Further documentation:__\n* Cloud Foundry: \u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/org-management-using-sap-btp-command-line-interface-btp-cli\u003e\n* Kyma: \u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\u003e\n* Concept: \u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/environments\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@lechnerc77/pulumi-btp\";\n\n// creates a cloud foundry environment in a given account\nconst cloudfoundrySubaccountEnvironmentInstance = new btp.SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environmentType: \"cloudfoundry\",\n    serviceName: \"cloudfoundry\",\n    planName: \"standard\",\n    parameters: JSON.stringify({\n        instance_name: \"my-cf-org-name\",\n    }),\n});\n// creates a cloud foundry environment in a given account\n// in additon add a custom timeout for the create and delete operation\nconst cloudfoundryIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new btp.SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environmentType: \"cloudfoundry\",\n    serviceName: \"cloudfoundry\",\n    planName: \"standard\",\n    parameters: JSON.stringify({\n        instance_name: \"my-cf-org-name\",\n    }),\n    timeouts: {\n        create: \"1h\",\n        update: \"35m\",\n        \"delete\": \"30m\",\n    },\n});\n// creates a kyma environment in a given account\n// NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\nconst kyma = new btp.SubaccountEnvironmentInstance(\"kyma\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environmentType: \"kyma\",\n    serviceName: \"kymaruntime\",\n    planName: \"aws\",\n    parameters: JSON.stringify({\n        name: \"my-kyma-environment\",\n        region: \"us-east-1\",\n        machine_type: \"mx5.xlarge\",\n        auto_scaler_min: 3,\n        auto_scaler_max: 20,\n    }),\n    timeouts: {\n        create: \"1h\",\n        update: \"35m\",\n        \"delete\": \"1h\",\n    },\n});\n```\n```python\nimport pulumi\nimport json\nimport lechnerc77_pulumi_btp as btp\n\n# creates a cloud foundry environment in a given account\ncloudfoundry_subaccount_environment_instance = btp.SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environment_type=\"cloudfoundry\",\n    service_name=\"cloudfoundry\",\n    plan_name=\"standard\",\n    parameters=json.dumps({\n        \"instance_name\": \"my-cf-org-name\",\n    }))\n# creates a cloud foundry environment in a given account\n# in additon add a custom timeout for the create and delete operation\ncloudfoundry_index_subaccount_environment_instance_subaccount_environment_instance = btp.SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environment_type=\"cloudfoundry\",\n    service_name=\"cloudfoundry\",\n    plan_name=\"standard\",\n    parameters=json.dumps({\n        \"instance_name\": \"my-cf-org-name\",\n    }),\n    timeouts=btp.SubaccountEnvironmentInstanceTimeoutsArgs(\n        create=\"1h\",\n        update=\"35m\",\n        delete=\"30m\",\n    ))\n# creates a kyma environment in a given account\n# NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\nkyma = btp.SubaccountEnvironmentInstance(\"kyma\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environment_type=\"kyma\",\n    service_name=\"kymaruntime\",\n    plan_name=\"aws\",\n    parameters=json.dumps({\n        \"name\": \"my-kyma-environment\",\n        \"region\": \"us-east-1\",\n        \"machine_type\": \"mx5.xlarge\",\n        \"auto_scaler_min\": 3,\n        \"auto_scaler_max\": 20,\n    }),\n    timeouts=btp.SubaccountEnvironmentInstanceTimeoutsArgs(\n        create=\"1h\",\n        update=\"35m\",\n        delete=\"1h\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Btp = PulumiBtp.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // creates a cloud foundry environment in a given account\n    var cloudfoundrySubaccountEnvironmentInstance = new Btp.SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        EnvironmentType = \"cloudfoundry\",\n        ServiceName = \"cloudfoundry\",\n        PlanName = \"standard\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"instance_name\"] = \"my-cf-org-name\",\n        }),\n    });\n\n    // creates a cloud foundry environment in a given account\n    // in additon add a custom timeout for the create and delete operation\n    var cloudfoundryIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new Btp.SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        EnvironmentType = \"cloudfoundry\",\n        ServiceName = \"cloudfoundry\",\n        PlanName = \"standard\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"instance_name\"] = \"my-cf-org-name\",\n        }),\n        Timeouts = new Btp.Inputs.SubaccountEnvironmentInstanceTimeoutsArgs\n        {\n            Create = \"1h\",\n            Update = \"35m\",\n            Delete = \"30m\",\n        },\n    });\n\n    // creates a kyma environment in a given account\n    // NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\n    var kyma = new Btp.SubaccountEnvironmentInstance(\"kyma\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        EnvironmentType = \"kyma\",\n        ServiceName = \"kymaruntime\",\n        PlanName = \"aws\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"name\"] = \"my-kyma-environment\",\n            [\"region\"] = \"us-east-1\",\n            [\"machine_type\"] = \"mx5.xlarge\",\n            [\"auto_scaler_min\"] = 3,\n            [\"auto_scaler_max\"] = 20,\n        }),\n        Timeouts = new Btp.Inputs.SubaccountEnvironmentInstanceTimeoutsArgs\n        {\n            Create = \"1h\",\n            Update = \"35m\",\n            Delete = \"1h\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"instance_name\": \"my-cf-org-name\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = btp.NewSubaccountEnvironmentInstance(ctx, \"cloudfoundrySubaccountEnvironmentInstance\", \u0026btp.SubaccountEnvironmentInstanceArgs{\n\t\t\tSubaccountId:    pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tEnvironmentType: pulumi.String(\"cloudfoundry\"),\n\t\t\tServiceName:     pulumi.String(\"cloudfoundry\"),\n\t\t\tPlanName:        pulumi.String(\"standard\"),\n\t\t\tParameters:      pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON1, err := json.Marshal(map[string]interface{}{\n\t\t\t\"instance_name\": \"my-cf-org-name\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson1 := string(tmpJSON1)\n\t\t_, err = btp.NewSubaccountEnvironmentInstance(ctx, \"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", \u0026btp.SubaccountEnvironmentInstanceArgs{\n\t\t\tSubaccountId:    pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tEnvironmentType: pulumi.String(\"cloudfoundry\"),\n\t\t\tServiceName:     pulumi.String(\"cloudfoundry\"),\n\t\t\tPlanName:        pulumi.String(\"standard\"),\n\t\t\tParameters:      pulumi.String(json1),\n\t\t\tTimeouts: \u0026btp.SubaccountEnvironmentInstanceTimeoutsArgs{\n\t\t\t\tCreate: pulumi.String(\"1h\"),\n\t\t\t\tUpdate: pulumi.String(\"35m\"),\n\t\t\t\tDelete: pulumi.String(\"30m\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON2, err := json.Marshal(map[string]interface{}{\n\t\t\t\"name\":            \"my-kyma-environment\",\n\t\t\t\"region\":          \"us-east-1\",\n\t\t\t\"machine_type\":    \"mx5.xlarge\",\n\t\t\t\"auto_scaler_min\": 3,\n\t\t\t\"auto_scaler_max\": 20,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson2 := string(tmpJSON2)\n\t\t_, err = btp.NewSubaccountEnvironmentInstance(ctx, \"kyma\", \u0026btp.SubaccountEnvironmentInstanceArgs{\n\t\t\tSubaccountId:    pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tEnvironmentType: pulumi.String(\"kyma\"),\n\t\t\tServiceName:     pulumi.String(\"kymaruntime\"),\n\t\t\tPlanName:        pulumi.String(\"aws\"),\n\t\t\tParameters:      pulumi.String(json2),\n\t\t\tTimeouts: \u0026btp.SubaccountEnvironmentInstanceTimeoutsArgs{\n\t\t\t\tCreate: pulumi.String(\"1h\"),\n\t\t\t\tUpdate: pulumi.String(\"35m\"),\n\t\t\t\tDelete: pulumi.String(\"1h\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.SubaccountEnvironmentInstance;\nimport com.pulumi.btp.SubaccountEnvironmentInstanceArgs;\nimport com.pulumi.btp.inputs.SubaccountEnvironmentInstanceTimeoutsArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var cloudfoundrySubaccountEnvironmentInstance = new SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\", SubaccountEnvironmentInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .environmentType(\"cloudfoundry\")\n            .serviceName(\"cloudfoundry\")\n            .planName(\"standard\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"instance_name\", \"my-cf-org-name\")\n                )))\n            .build());\n\n        var cloudfoundryIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", SubaccountEnvironmentInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .environmentType(\"cloudfoundry\")\n            .serviceName(\"cloudfoundry\")\n            .planName(\"standard\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"instance_name\", \"my-cf-org-name\")\n                )))\n            .timeouts(SubaccountEnvironmentInstanceTimeoutsArgs.builder()\n                .create(\"1h\")\n                .update(\"35m\")\n                .delete(\"30m\")\n                .build())\n            .build());\n\n        var kyma = new SubaccountEnvironmentInstance(\"kyma\", SubaccountEnvironmentInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .environmentType(\"kyma\")\n            .serviceName(\"kymaruntime\")\n            .planName(\"aws\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"name\", \"my-kyma-environment\"),\n                    jsonProperty(\"region\", \"us-east-1\"),\n                    jsonProperty(\"machine_type\", \"mx5.xlarge\"),\n                    jsonProperty(\"auto_scaler_min\", 3),\n                    jsonProperty(\"auto_scaler_max\", 20)\n                )))\n            .timeouts(SubaccountEnvironmentInstanceTimeoutsArgs.builder()\n                .create(\"1h\")\n                .update(\"35m\")\n                .delete(\"1h\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # creates a cloud foundry environment in a given account\n  cloudfoundrySubaccountEnvironmentInstance:\n    type: btp:SubaccountEnvironmentInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      environmentType: cloudfoundry\n      serviceName: cloudfoundry\n      planName: standard\n      # some regions offer multiple environments of a kind and you must explicitly select the target environment in which\n      #   # the instance shall be created. \n      #   # available environments can be looked up using the btp_subaccount_environments datasource\n      parameters:\n        fn::toJSON:\n          instance_name: my-cf-org-name\n  # creates a cloud foundry environment in a given account\n  # in additon add a custom timeout for the create and delete operation\n  cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance:\n    type: btp:SubaccountEnvironmentInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      environmentType: cloudfoundry\n      serviceName: cloudfoundry\n      planName: standard\n      # some regions offer multiple environments of a kind and you must explicitly select the target environment in which\n      #   # the instance shall be created. \n      #   # available environments can be looked up using the btp_subaccount_environments datasource\n      parameters:\n        fn::toJSON:\n          instance_name: my-cf-org-name\n      timeouts:\n        create: 1h\n        update: 35m\n        delete: 30m\n  # creates a kyma environment in a given account\n  # NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\n  kyma:\n    type: btp:SubaccountEnvironmentInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      environmentType: kyma\n      serviceName: kymaruntime\n      planName: aws\n      parameters:\n        fn::toJSON:\n          name: my-kyma-environment\n          region: us-east-1\n          machine_type: mx5.xlarge\n          auto_scaler_min: 3\n          auto_scaler_max: 20\n      timeouts:\n        create: 1h\n        update: 35m\n        delete: 1h\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nterraform\n\n```sh\n $ pulumi import btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance \u003cresource_name\u003e \u003csubaccount_id\u003e,\u003cenvironment_instance_id\u003e\n```\n\n\n\n```sh\n $ pulumi import btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance cloudfoundry 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,FD9BB73F-F663-4284-A50B-D72EC24FC4E1\n```\n\n ",
+            "description": "Creates an environment instance, such as a Cloud Foundry org, in a subaccount.\n\n__Tips:__\n* You must be assigned to the subaccount admin role.\n* Quota-based environments, such as Kyma, must first be assigned as entitlements to the subaccount.\n\n__Further documentation:__\n* Cloud Foundry: \u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/org-management-using-sap-btp-command-line-interface-btp-cli\u003e\n* Kyma: \u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\u003e\n* Concept: \u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/environments\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@lechnerc77/pulumi-btp\";\n\n// creates a cloud foundry environment in a given account\nconst cloudfoundrySubaccountEnvironmentInstance = new btp.SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environmentType: \"cloudfoundry\",\n    serviceName: \"cloudfoundry\",\n    planName: \"standard\",\n    parameters: JSON.stringify({\n        instance_name: \"my-cf-org-name\",\n    }),\n});\n// creates a cloud foundry environment in a given account\n// in additon add a custom timeout for the create and delete operation\nconst cloudfoundryIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new btp.SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environmentType: \"cloudfoundry\",\n    serviceName: \"cloudfoundry\",\n    planName: \"standard\",\n    parameters: JSON.stringify({\n        instance_name: \"my-cf-org-name\",\n    }),\n    timeouts: {\n        create: \"1h\",\n        update: \"35m\",\n        \"delete\": \"30m\",\n    },\n});\n// creates a cloud foundry environment in a given account\n// and the dedicted target landscape cf-us10\nconst cloudfoundryBtpIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new btp.SubaccountEnvironmentInstance(\"cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environmentType: \"cloudfoundry\",\n    serviceName: \"cloudfoundry\",\n    landscapeLabel: \"cf-us10\",\n    planName: \"standard\",\n    parameters: JSON.stringify({\n        instance_name: \"my-cf-org-name\",\n    }),\n});\n// creates a kyma environment in a given account\n// NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\nconst kyma = new btp.SubaccountEnvironmentInstance(\"kyma\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environmentType: \"kyma\",\n    serviceName: \"kymaruntime\",\n    planName: \"aws\",\n    parameters: JSON.stringify({\n        name: \"my-kyma-environment\",\n        region: \"us-east-1\",\n        machine_type: \"mx5.xlarge\",\n        auto_scaler_min: 3,\n        auto_scaler_max: 20,\n    }),\n    timeouts: {\n        create: \"1h\",\n        update: \"35m\",\n        \"delete\": \"1h\",\n    },\n});\n```\n```python\nimport pulumi\nimport json\nimport lechnerc77_pulumi_btp as btp\n\n# creates a cloud foundry environment in a given account\ncloudfoundry_subaccount_environment_instance = btp.SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environment_type=\"cloudfoundry\",\n    service_name=\"cloudfoundry\",\n    plan_name=\"standard\",\n    parameters=json.dumps({\n        \"instance_name\": \"my-cf-org-name\",\n    }))\n# creates a cloud foundry environment in a given account\n# in additon add a custom timeout for the create and delete operation\ncloudfoundry_index_subaccount_environment_instance_subaccount_environment_instance = btp.SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environment_type=\"cloudfoundry\",\n    service_name=\"cloudfoundry\",\n    plan_name=\"standard\",\n    parameters=json.dumps({\n        \"instance_name\": \"my-cf-org-name\",\n    }),\n    timeouts=btp.SubaccountEnvironmentInstanceTimeoutsArgs(\n        create=\"1h\",\n        update=\"35m\",\n        delete=\"30m\",\n    ))\n# creates a cloud foundry environment in a given account\n# and the dedicted target landscape cf-us10\ncloudfoundry_btp_index_subaccount_environment_instance_subaccount_environment_instance = btp.SubaccountEnvironmentInstance(\"cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environment_type=\"cloudfoundry\",\n    service_name=\"cloudfoundry\",\n    landscape_label=\"cf-us10\",\n    plan_name=\"standard\",\n    parameters=json.dumps({\n        \"instance_name\": \"my-cf-org-name\",\n    }))\n# creates a kyma environment in a given account\n# NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\nkyma = btp.SubaccountEnvironmentInstance(\"kyma\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    environment_type=\"kyma\",\n    service_name=\"kymaruntime\",\n    plan_name=\"aws\",\n    parameters=json.dumps({\n        \"name\": \"my-kyma-environment\",\n        \"region\": \"us-east-1\",\n        \"machine_type\": \"mx5.xlarge\",\n        \"auto_scaler_min\": 3,\n        \"auto_scaler_max\": 20,\n    }),\n    timeouts=btp.SubaccountEnvironmentInstanceTimeoutsArgs(\n        create=\"1h\",\n        update=\"35m\",\n        delete=\"1h\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Btp = PulumiBtp.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // creates a cloud foundry environment in a given account\n    var cloudfoundrySubaccountEnvironmentInstance = new Btp.SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        EnvironmentType = \"cloudfoundry\",\n        ServiceName = \"cloudfoundry\",\n        PlanName = \"standard\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"instance_name\"] = \"my-cf-org-name\",\n        }),\n    });\n\n    // creates a cloud foundry environment in a given account\n    // in additon add a custom timeout for the create and delete operation\n    var cloudfoundryIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new Btp.SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        EnvironmentType = \"cloudfoundry\",\n        ServiceName = \"cloudfoundry\",\n        PlanName = \"standard\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"instance_name\"] = \"my-cf-org-name\",\n        }),\n        Timeouts = new Btp.Inputs.SubaccountEnvironmentInstanceTimeoutsArgs\n        {\n            Create = \"1h\",\n            Update = \"35m\",\n            Delete = \"30m\",\n        },\n    });\n\n    // creates a cloud foundry environment in a given account\n    // and the dedicted target landscape cf-us10\n    var cloudfoundryBtpIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new Btp.SubaccountEnvironmentInstance(\"cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        EnvironmentType = \"cloudfoundry\",\n        ServiceName = \"cloudfoundry\",\n        LandscapeLabel = \"cf-us10\",\n        PlanName = \"standard\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"instance_name\"] = \"my-cf-org-name\",\n        }),\n    });\n\n    // creates a kyma environment in a given account\n    // NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\n    var kyma = new Btp.SubaccountEnvironmentInstance(\"kyma\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        EnvironmentType = \"kyma\",\n        ServiceName = \"kymaruntime\",\n        PlanName = \"aws\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"name\"] = \"my-kyma-environment\",\n            [\"region\"] = \"us-east-1\",\n            [\"machine_type\"] = \"mx5.xlarge\",\n            [\"auto_scaler_min\"] = 3,\n            [\"auto_scaler_max\"] = 20,\n        }),\n        Timeouts = new Btp.Inputs.SubaccountEnvironmentInstanceTimeoutsArgs\n        {\n            Create = \"1h\",\n            Update = \"35m\",\n            Delete = \"1h\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"instance_name\": \"my-cf-org-name\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = btp.NewSubaccountEnvironmentInstance(ctx, \"cloudfoundrySubaccountEnvironmentInstance\", \u0026btp.SubaccountEnvironmentInstanceArgs{\n\t\t\tSubaccountId:    pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tEnvironmentType: pulumi.String(\"cloudfoundry\"),\n\t\t\tServiceName:     pulumi.String(\"cloudfoundry\"),\n\t\t\tPlanName:        pulumi.String(\"standard\"),\n\t\t\tParameters:      pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON1, err := json.Marshal(map[string]interface{}{\n\t\t\t\"instance_name\": \"my-cf-org-name\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson1 := string(tmpJSON1)\n\t\t_, err = btp.NewSubaccountEnvironmentInstance(ctx, \"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", \u0026btp.SubaccountEnvironmentInstanceArgs{\n\t\t\tSubaccountId:    pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tEnvironmentType: pulumi.String(\"cloudfoundry\"),\n\t\t\tServiceName:     pulumi.String(\"cloudfoundry\"),\n\t\t\tPlanName:        pulumi.String(\"standard\"),\n\t\t\tParameters:      pulumi.String(json1),\n\t\t\tTimeouts: \u0026btp.SubaccountEnvironmentInstanceTimeoutsArgs{\n\t\t\t\tCreate: pulumi.String(\"1h\"),\n\t\t\t\tUpdate: pulumi.String(\"35m\"),\n\t\t\t\tDelete: pulumi.String(\"30m\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON2, err := json.Marshal(map[string]interface{}{\n\t\t\t\"instance_name\": \"my-cf-org-name\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson2 := string(tmpJSON2)\n\t\t_, err = btp.NewSubaccountEnvironmentInstance(ctx, \"cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", \u0026btp.SubaccountEnvironmentInstanceArgs{\n\t\t\tSubaccountId:    pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tEnvironmentType: pulumi.String(\"cloudfoundry\"),\n\t\t\tServiceName:     pulumi.String(\"cloudfoundry\"),\n\t\t\tLandscapeLabel:  pulumi.String(\"cf-us10\"),\n\t\t\tPlanName:        pulumi.String(\"standard\"),\n\t\t\tParameters:      pulumi.String(json2),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON3, err := json.Marshal(map[string]interface{}{\n\t\t\t\"name\":            \"my-kyma-environment\",\n\t\t\t\"region\":          \"us-east-1\",\n\t\t\t\"machine_type\":    \"mx5.xlarge\",\n\t\t\t\"auto_scaler_min\": 3,\n\t\t\t\"auto_scaler_max\": 20,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson3 := string(tmpJSON3)\n\t\t_, err = btp.NewSubaccountEnvironmentInstance(ctx, \"kyma\", \u0026btp.SubaccountEnvironmentInstanceArgs{\n\t\t\tSubaccountId:    pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tEnvironmentType: pulumi.String(\"kyma\"),\n\t\t\tServiceName:     pulumi.String(\"kymaruntime\"),\n\t\t\tPlanName:        pulumi.String(\"aws\"),\n\t\t\tParameters:      pulumi.String(json3),\n\t\t\tTimeouts: \u0026btp.SubaccountEnvironmentInstanceTimeoutsArgs{\n\t\t\t\tCreate: pulumi.String(\"1h\"),\n\t\t\t\tUpdate: pulumi.String(\"35m\"),\n\t\t\t\tDelete: pulumi.String(\"1h\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.SubaccountEnvironmentInstance;\nimport com.pulumi.btp.SubaccountEnvironmentInstanceArgs;\nimport com.pulumi.btp.inputs.SubaccountEnvironmentInstanceTimeoutsArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var cloudfoundrySubaccountEnvironmentInstance = new SubaccountEnvironmentInstance(\"cloudfoundrySubaccountEnvironmentInstance\", SubaccountEnvironmentInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .environmentType(\"cloudfoundry\")\n            .serviceName(\"cloudfoundry\")\n            .planName(\"standard\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"instance_name\", \"my-cf-org-name\")\n                )))\n            .build());\n\n        var cloudfoundryIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new SubaccountEnvironmentInstance(\"cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", SubaccountEnvironmentInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .environmentType(\"cloudfoundry\")\n            .serviceName(\"cloudfoundry\")\n            .planName(\"standard\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"instance_name\", \"my-cf-org-name\")\n                )))\n            .timeouts(SubaccountEnvironmentInstanceTimeoutsArgs.builder()\n                .create(\"1h\")\n                .update(\"35m\")\n                .delete(\"30m\")\n                .build())\n            .build());\n\n        var cloudfoundryBtpIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new SubaccountEnvironmentInstance(\"cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance\", SubaccountEnvironmentInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .environmentType(\"cloudfoundry\")\n            .serviceName(\"cloudfoundry\")\n            .landscapeLabel(\"cf-us10\")\n            .planName(\"standard\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"instance_name\", \"my-cf-org-name\")\n                )))\n            .build());\n\n        var kyma = new SubaccountEnvironmentInstance(\"kyma\", SubaccountEnvironmentInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .environmentType(\"kyma\")\n            .serviceName(\"kymaruntime\")\n            .planName(\"aws\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"name\", \"my-kyma-environment\"),\n                    jsonProperty(\"region\", \"us-east-1\"),\n                    jsonProperty(\"machine_type\", \"mx5.xlarge\"),\n                    jsonProperty(\"auto_scaler_min\", 3),\n                    jsonProperty(\"auto_scaler_max\", 20)\n                )))\n            .timeouts(SubaccountEnvironmentInstanceTimeoutsArgs.builder()\n                .create(\"1h\")\n                .update(\"35m\")\n                .delete(\"1h\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # creates a cloud foundry environment in a given account\n  cloudfoundrySubaccountEnvironmentInstance:\n    type: btp:SubaccountEnvironmentInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      environmentType: cloudfoundry\n      serviceName: cloudfoundry\n      planName: standard\n      # ATTENTION: some regions offer multiple environments of a kind and you must explicitly select the target environment in which\n      #   # the instance shall be created using the parameter landscape label. \n      #   # available environments can be looked up using the btp_subaccount_environments datasource\n      parameters:\n        fn::toJSON:\n          instance_name: my-cf-org-name\n  # creates a cloud foundry environment in a given account\n  # in additon add a custom timeout for the create and delete operation\n  cloudfoundryIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance:\n    type: btp:SubaccountEnvironmentInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      environmentType: cloudfoundry\n      serviceName: cloudfoundry\n      planName: standard\n      # ATTENTION: some regions offer multiple environments of a kind and you must explicitly select the target environment in which\n      #   # the instance shall be created using the parameter landscape label. \n      #   # available environments can be looked up using the btp_subaccount_environments datasource\n      parameters:\n        fn::toJSON:\n          instance_name: my-cf-org-name\n      timeouts:\n        create: 1h\n        update: 35m\n        delete: 30m\n  # creates a cloud foundry environment in a given account\n  # and the dedicted target landscape cf-us10\n  cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance:\n    type: btp:SubaccountEnvironmentInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      environmentType: cloudfoundry\n      serviceName: cloudfoundry\n      landscapeLabel: cf-us10\n      planName: standard\n      parameters:\n        fn::toJSON:\n          instance_name: my-cf-org-name\n  # creates a kyma environment in a given account\n  # NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment\n  kyma:\n    type: btp:SubaccountEnvironmentInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      environmentType: kyma\n      serviceName: kymaruntime\n      planName: aws\n      parameters:\n        fn::toJSON:\n          name: my-kyma-environment\n          region: us-east-1\n          machine_type: mx5.xlarge\n          auto_scaler_min: 3\n          auto_scaler_max: 20\n      timeouts:\n        create: 1h\n        update: 35m\n        delete: 1h\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nterraform\n\n```sh\n $ pulumi import btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance \u003cresource_name\u003e \u003csubaccount_id\u003e,\u003cenvironment_instance_id\u003e\n```\n\n\n\n```sh\n $ pulumi import btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance cloudfoundry 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,FD9BB73F-F663-4284-A50B-D72EC24FC4E1\n```\n\n ",
             "properties": {
                 "brokerId": {
                     "type": "string",
@@ -3782,7 +3935,7 @@
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The identity provider that hosts the user or a group. The default value is `ldap`.\n"
+                    "description": "The identity provider that hosts the user or a group. Only needed for custom identity provider.\n"
                 },
                 "roleCollectionName": {
                     "type": "string",
@@ -3817,7 +3970,7 @@
                 },
                 "origin": {
                     "type": "string",
-                    "description": "The identity provider that hosts the user or a group. The default value is `ldap`.\n"
+                    "description": "The identity provider that hosts the user or a group. Only needed for custom identity provider.\n"
                 },
                 "roleCollectionName": {
                     "type": "string",
@@ -3853,7 +4006,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user or a group. The default value is `ldap`.\n"
+                        "description": "The identity provider that hosts the user or a group. Only needed for custom identity provider.\n"
                     },
                     "roleCollectionName": {
                         "type": "string",
@@ -3871,6 +4024,111 @@
                 "type": "object"
             }
         },
+        "btp:index/subaccountSecuritySettings:SubaccountSecuritySettings": {
+            "description": "Sets the security settings of a subaccount.\n\n__Tip:__\nYou must be administrator of the subaccount.\n\n__Further documentation:__\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-trusted-domains-for-sap-authorization-and-trust-management-service\u003e\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-token-policy-for-sap-authorization-and-trust-management-service\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@lechnerc77/pulumi-btp\";\n\nconst subaccount = new btp.SubaccountSecuritySettings(\"subaccount\", {\n    accessTokenValidity: 3600,\n    customEmailDomains: [\"yourdomain.test\"],\n    defaultIdentityProvider: \"sap.custom\",\n    refreshTokenValidity: 3600,\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    treatUsersWithSameEmailAsSameUser: true,\n});\n```\n```python\nimport pulumi\nimport lechnerc77_pulumi_btp as btp\n\nsubaccount = btp.SubaccountSecuritySettings(\"subaccount\",\n    access_token_validity=3600,\n    custom_email_domains=[\"yourdomain.test\"],\n    default_identity_provider=\"sap.custom\",\n    refresh_token_validity=3600,\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    treat_users_with_same_email_as_same_user=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Btp = PulumiBtp.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var subaccount = new Btp.SubaccountSecuritySettings(\"subaccount\", new()\n    {\n        AccessTokenValidity = 3600,\n        CustomEmailDomains = new[]\n        {\n            \"yourdomain.test\",\n        },\n        DefaultIdentityProvider = \"sap.custom\",\n        RefreshTokenValidity = 3600,\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        TreatUsersWithSameEmailAsSameUser = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.NewSubaccountSecuritySettings(ctx, \"subaccount\", \u0026btp.SubaccountSecuritySettingsArgs{\n\t\t\tAccessTokenValidity: pulumi.Int(3600),\n\t\t\tCustomEmailDomains: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"yourdomain.test\"),\n\t\t\t},\n\t\t\tDefaultIdentityProvider:           pulumi.String(\"sap.custom\"),\n\t\t\tRefreshTokenValidity:              pulumi.Int(3600),\n\t\t\tSubaccountId:                      pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tTreatUsersWithSameEmailAsSameUser: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.SubaccountSecuritySettings;\nimport com.pulumi.btp.SubaccountSecuritySettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var subaccount = new SubaccountSecuritySettings(\"subaccount\", SubaccountSecuritySettingsArgs.builder()        \n            .accessTokenValidity(3600)\n            .customEmailDomains(\"yourdomain.test\")\n            .defaultIdentityProvider(\"sap.custom\")\n            .refreshTokenValidity(3600)\n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .treatUsersWithSameEmailAsSameUser(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  subaccount:\n    type: btp:SubaccountSecuritySettings\n    properties:\n      accessTokenValidity: 3600\n      customEmailDomains:\n        - yourdomain.test\n      defaultIdentityProvider: sap.custom\n      refreshTokenValidity: 3600\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      treatUsersWithSameEmailAsSameUser: true\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "accessTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the access token.\n"
+                },
+                "customEmailDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of domains that are allowed to be used for user authentication.\n"
+                },
+                "defaultIdentityProvider": {
+                    "type": "string",
+                    "description": "The subaccount's default identity provider for business application users.\n"
+                },
+                "refreshTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the refresh token.\n"
+                },
+                "subaccountId": {
+                    "type": "string",
+                    "description": "The ID of the subaccount.\n"
+                },
+                "treatUsersWithSameEmailAsSameUser": {
+                    "type": "boolean",
+                    "description": "If set to true, users with the same email are treated as same users.\n"
+                }
+            },
+            "required": [
+                "accessTokenValidity",
+                "customEmailDomains",
+                "defaultIdentityProvider",
+                "refreshTokenValidity",
+                "subaccountId",
+                "treatUsersWithSameEmailAsSameUser"
+            ],
+            "inputProperties": {
+                "accessTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the access token.\n"
+                },
+                "customEmailDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Set of domains that are allowed to be used for user authentication.\n"
+                },
+                "defaultIdentityProvider": {
+                    "type": "string",
+                    "description": "The subaccount's default identity provider for business application users.\n"
+                },
+                "refreshTokenValidity": {
+                    "type": "integer",
+                    "description": "The validity of the refresh token.\n"
+                },
+                "subaccountId": {
+                    "type": "string",
+                    "description": "The ID of the subaccount.\n"
+                },
+                "treatUsersWithSameEmailAsSameUser": {
+                    "type": "boolean",
+                    "description": "If set to true, users with the same email are treated as same users.\n"
+                }
+            },
+            "requiredInputs": [
+                "subaccountId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering SubaccountSecuritySettings resources.\n",
+                "properties": {
+                    "accessTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the access token.\n"
+                    },
+                    "customEmailDomains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of domains that are allowed to be used for user authentication.\n"
+                    },
+                    "defaultIdentityProvider": {
+                        "type": "string",
+                        "description": "The subaccount's default identity provider for business application users.\n"
+                    },
+                    "refreshTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the refresh token.\n"
+                    },
+                    "subaccountId": {
+                        "type": "string",
+                        "description": "The ID of the subaccount.\n"
+                    },
+                    "treatUsersWithSameEmailAsSameUser": {
+                        "type": "boolean",
+                        "description": "If set to true, users with the same email are treated as same users.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "btp:index/subaccountServiceBinding:SubaccountServiceBinding": {
             "description": "Creates a service binding, i.e. generates access details to consume a service.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@lechnerc77/pulumi-btp\";\n\n// create a service binding in a subaccount\nconst myBinding = new btp.SubaccountServiceBinding(\"myBinding\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceInstanceId: \"8911491d-0e1d-425d-a233-785512602d6f\",\n});\n// create a parameterized service binding in a subaccount\nconst myParameterizedBinding = new btp.SubaccountServiceBinding(\"myParameterizedBinding\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceInstanceId: \"8911491d-0e1d-425d-a233-785512602d6f\",\n    parameters: JSON.stringify({\n        param_a: \"\",\n        param_b: \"\",\n    }),\n});\n```\n```python\nimport pulumi\nimport json\nimport lechnerc77_pulumi_btp as btp\n\n# create a service binding in a subaccount\nmy_binding = btp.SubaccountServiceBinding(\"myBinding\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    service_instance_id=\"8911491d-0e1d-425d-a233-785512602d6f\")\n# create a parameterized service binding in a subaccount\nmy_parameterized_binding = btp.SubaccountServiceBinding(\"myParameterizedBinding\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    service_instance_id=\"8911491d-0e1d-425d-a233-785512602d6f\",\n    parameters=json.dumps({\n        \"param_a\": \"\",\n        \"param_b\": \"\",\n    }))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Btp = PulumiBtp.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // create a service binding in a subaccount\n    var myBinding = new Btp.SubaccountServiceBinding(\"myBinding\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceInstanceId = \"8911491d-0e1d-425d-a233-785512602d6f\",\n    });\n\n    // create a parameterized service binding in a subaccount\n    var myParameterizedBinding = new Btp.SubaccountServiceBinding(\"myParameterizedBinding\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceInstanceId = \"8911491d-0e1d-425d-a233-785512602d6f\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"param_a\"] = \"\",\n            [\"param_b\"] = \"\",\n        }),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.NewSubaccountServiceBinding(ctx, \"myBinding\", \u0026btp.SubaccountServiceBindingArgs{\n\t\t\tSubaccountId:      pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceInstanceId: pulumi.String(\"8911491d-0e1d-425d-a233-785512602d6f\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"param_a\": \"\",\n\t\t\t\"param_b\": \"\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = btp.NewSubaccountServiceBinding(ctx, \"myParameterizedBinding\", \u0026btp.SubaccountServiceBindingArgs{\n\t\t\tSubaccountId:      pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceInstanceId: pulumi.String(\"8911491d-0e1d-425d-a233-785512602d6f\"),\n\t\t\tParameters:        pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.SubaccountServiceBinding;\nimport com.pulumi.btp.SubaccountServiceBindingArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var myBinding = new SubaccountServiceBinding(\"myBinding\", SubaccountServiceBindingArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceInstanceId(\"8911491d-0e1d-425d-a233-785512602d6f\")\n            .build());\n\n        var myParameterizedBinding = new SubaccountServiceBinding(\"myParameterizedBinding\", SubaccountServiceBindingArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceInstanceId(\"8911491d-0e1d-425d-a233-785512602d6f\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"param_a\", \"\"),\n                    jsonProperty(\"param_b\", \"\")\n                )))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # create a service binding in a subaccount\n  myBinding:\n    type: btp:SubaccountServiceBinding\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      serviceInstanceId: 8911491d-0e1d-425d-a233-785512602d6f\n  # create a parameterized service binding in a subaccount\n  myParameterizedBinding:\n    type: btp:SubaccountServiceBinding\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      serviceInstanceId: 8911491d-0e1d-425d-a233-785512602d6f\n      parameters:\n        fn::toJSON:\n          param_a:\n          param_b:\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nterraform\n\n```sh\n $ pulumi import btp:index/subaccountServiceBinding:SubaccountServiceBinding \u003cresource_name\u003e \u003csubaccount_id\u003e,\u003cservice_binding_id\u003e\n```\n\n\n\n```sh\n $ pulumi import btp:index/subaccountServiceBinding:SubaccountServiceBinding my_binding 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,910e9a7d-0fb4-4428-a813-56550e683579\n```\n\n ",
             "properties": {
@@ -3882,10 +4140,7 @@
                     "description": "Contains the resources associated with the binding.\n"
                 },
                 "context": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "type": "string",
                     "description": "The contextual data for the resource.\n"
                 },
                 "createdDate": {
@@ -3993,10 +4248,7 @@
                         "description": "Contains the resources associated with the binding.\n"
                     },
                     "context": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        },
+                        "type": "string",
                         "description": "The contextual data for the resource.\n"
                     },
                     "createdDate": {
@@ -4051,13 +4303,10 @@
             }
         },
         "btp:index/subaccountServiceInstance:SubaccountServiceInstance": {
-            "description": "Creates a service instance in a subaccount.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@lechnerc77/pulumi-btp\";\n\n// create an instance of the alert-notification service (no configuration necessary)\nconst alertNotificationFreeSubaccountServiceInstance = new btp.SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplanId: \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n});\n// create an xsuaa service instance with additional configurations\nconst xsuaaApplication = new btp.SubaccountServiceInstance(\"xsuaaApplication\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplanId: \"bd5e893f-81dd-4d10-8343-e02975e8ecd8\",\n    parameters: JSON.stringify({\n        xsappname: \"my-application\",\n        \"tenant-mode\": \"dedicated\",\n    }),\n});\n// create an instance of the alert-notification service (no configuration necessary)\n// in additon add a custom timeout for the create and update operation\nconst alertNotificationFreeIndex_subaccountServiceInstanceSubaccountServiceInstance = new btp.SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplanId: \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n    timeouts: {\n        create: \"25m\",\n        update: \"15m\",\n        \"delete\": \"15m\",\n    },\n});\n```\n```python\nimport pulumi\nimport json\nimport lechnerc77_pulumi_btp as btp\n\n# create an instance of the alert-notification service (no configuration necessary)\nalert_notification_free_subaccount_service_instance = btp.SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplan_id=\"b50d1b0b-2059-4f21-a014-2ea87752eb48\")\n# create an xsuaa service instance with additional configurations\nxsuaa_application = btp.SubaccountServiceInstance(\"xsuaaApplication\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplan_id=\"bd5e893f-81dd-4d10-8343-e02975e8ecd8\",\n    parameters=json.dumps({\n        \"xsappname\": \"my-application\",\n        \"tenant-mode\": \"dedicated\",\n    }))\n# create an instance of the alert-notification service (no configuration necessary)\n# in additon add a custom timeout for the create and update operation\nalert_notification_free_index_subaccount_service_instance_subaccount_service_instance = btp.SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplan_id=\"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n    timeouts=btp.SubaccountServiceInstanceTimeoutsArgs(\n        create=\"25m\",\n        update=\"15m\",\n        delete=\"15m\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Btp = PulumiBtp.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // create an instance of the alert-notification service (no configuration necessary)\n    var alertNotificationFreeSubaccountServiceInstance = new Btp.SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceplanId = \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n    });\n\n    // create an xsuaa service instance with additional configurations\n    var xsuaaApplication = new Btp.SubaccountServiceInstance(\"xsuaaApplication\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceplanId = \"bd5e893f-81dd-4d10-8343-e02975e8ecd8\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"xsappname\"] = \"my-application\",\n            [\"tenant-mode\"] = \"dedicated\",\n        }),\n    });\n\n    // create an instance of the alert-notification service (no configuration necessary)\n    // in additon add a custom timeout for the create and update operation\n    var alertNotificationFreeIndex_subaccountServiceInstanceSubaccountServiceInstance = new Btp.SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceplanId = \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n        Timeouts = new Btp.Inputs.SubaccountServiceInstanceTimeoutsArgs\n        {\n            Create = \"25m\",\n            Update = \"15m\",\n            Delete = \"15m\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.NewSubaccountServiceInstance(ctx, \"alertNotificationFreeSubaccountServiceInstance\", \u0026btp.SubaccountServiceInstanceArgs{\n\t\t\tSubaccountId:  pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceplanId: pulumi.String(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"xsappname\":   \"my-application\",\n\t\t\t\"tenant-mode\": \"dedicated\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = btp.NewSubaccountServiceInstance(ctx, \"xsuaaApplication\", \u0026btp.SubaccountServiceInstanceArgs{\n\t\t\tSubaccountId:  pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceplanId: pulumi.String(\"bd5e893f-81dd-4d10-8343-e02975e8ecd8\"),\n\t\t\tParameters:    pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = btp.NewSubaccountServiceInstance(ctx, \"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", \u0026btp.SubaccountServiceInstanceArgs{\n\t\t\tSubaccountId:  pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceplanId: pulumi.String(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\"),\n\t\t\tTimeouts: \u0026btp.SubaccountServiceInstanceTimeoutsArgs{\n\t\t\t\tCreate: pulumi.String(\"25m\"),\n\t\t\t\tUpdate: pulumi.String(\"15m\"),\n\t\t\t\tDelete: pulumi.String(\"15m\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.SubaccountServiceInstance;\nimport com.pulumi.btp.SubaccountServiceInstanceArgs;\nimport com.pulumi.btp.inputs.SubaccountServiceInstanceTimeoutsArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var alertNotificationFreeSubaccountServiceInstance = new SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\", SubaccountServiceInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceplanId(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\")\n            .build());\n\n        var xsuaaApplication = new SubaccountServiceInstance(\"xsuaaApplication\", SubaccountServiceInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceplanId(\"bd5e893f-81dd-4d10-8343-e02975e8ecd8\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"xsappname\", \"my-application\"),\n                    jsonProperty(\"tenant-mode\", \"dedicated\")\n                )))\n            .build());\n\n        var alertNotificationFreeIndex_subaccountServiceInstanceSubaccountServiceInstance = new SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", SubaccountServiceInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceplanId(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\")\n            .timeouts(SubaccountServiceInstanceTimeoutsArgs.builder()\n                .create(\"25m\")\n                .update(\"15m\")\n                .delete(\"15m\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # create an instance of the alert-notification service (no configuration necessary)\n  alertNotificationFreeSubaccountServiceInstance:\n    type: btp:SubaccountServiceInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      # The service plan ID can be looked up via the data source btp_subaccount_service_plan\n      serviceplanId: b50d1b0b-2059-4f21-a014-2ea87752eb48\n  # create an xsuaa service instance with additional configurations\n  xsuaaApplication:\n    type: btp:SubaccountServiceInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      # The service plan ID can be looked up via the data source btp_subaccount_service_plan\n      serviceplanId: bd5e893f-81dd-4d10-8343-e02975e8ecd8\n      parameters:\n        fn::toJSON:\n          xsappname: my-application\n          tenant-mode: dedicated\n  # create an instance of the alert-notification service (no configuration necessary)\n  # in additon add a custom timeout for the create and update operation\n  alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance:\n    type: btp:SubaccountServiceInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      # The service plan ID can be looked up via the data source btp_subaccount_service_plan\n      serviceplanId: b50d1b0b-2059-4f21-a014-2ea87752eb48\n      timeouts:\n        create: 25m\n        update: 15m\n        delete: 15m\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nterraform\n\n```sh\n $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance \u003cresource_name\u003e \u003csubaccount_id\u003e,\u003cservice_instance_id\u003e\n```\n\n\n\n```sh\n $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance alert_notification_free 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,6a55f158-41b5-4e63-aa77-84089fa0ab98\n```\n\n ",
+            "description": "Creates a service instance in a subaccount.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@lechnerc77/pulumi-btp\";\n\n// create an instance of the alert-notification service (no configuration necessary)\nconst alertNotificationFreeSubaccountServiceInstance = new btp.SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplanId: \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n});\n// create an xsuaa service instance with additional configurations\nconst xsuaaApplication = new btp.SubaccountServiceInstance(\"xsuaaApplication\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplanId: \"bd5e893f-81dd-4d10-8343-e02975e8ecd8\",\n    parameters: JSON.stringify({\n        xsappname: \"my-application\",\n        \"tenant-mode\": \"dedicated\",\n    }),\n});\n// create an instance of the alert-notification service (no configuration necessary)\n// in additon add a custom timeout for the create and update operation\nconst alertNotificationFreeIndex_subaccountServiceInstanceSubaccountServiceInstance = new btp.SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", {\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplanId: \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n    timeouts: {\n        create: \"25m\",\n        update: \"15m\",\n        \"delete\": \"15m\",\n    },\n});\n```\n```python\nimport pulumi\nimport json\nimport lechnerc77_pulumi_btp as btp\n\n# create an instance of the alert-notification service (no configuration necessary)\nalert_notification_free_subaccount_service_instance = btp.SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplan_id=\"b50d1b0b-2059-4f21-a014-2ea87752eb48\")\n# create an xsuaa service instance with additional configurations\nxsuaa_application = btp.SubaccountServiceInstance(\"xsuaaApplication\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplan_id=\"bd5e893f-81dd-4d10-8343-e02975e8ecd8\",\n    parameters=json.dumps({\n        \"xsappname\": \"my-application\",\n        \"tenant-mode\": \"dedicated\",\n    }))\n# create an instance of the alert-notification service (no configuration necessary)\n# in additon add a custom timeout for the create and update operation\nalert_notification_free_index_subaccount_service_instance_subaccount_service_instance = btp.SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    serviceplan_id=\"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n    timeouts=btp.SubaccountServiceInstanceTimeoutsArgs(\n        create=\"25m\",\n        update=\"15m\",\n        delete=\"15m\",\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text.Json;\nusing Pulumi;\nusing Btp = PulumiBtp.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // create an instance of the alert-notification service (no configuration necessary)\n    var alertNotificationFreeSubaccountServiceInstance = new Btp.SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceplanId = \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n    });\n\n    // create an xsuaa service instance with additional configurations\n    var xsuaaApplication = new Btp.SubaccountServiceInstance(\"xsuaaApplication\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceplanId = \"bd5e893f-81dd-4d10-8343-e02975e8ecd8\",\n        Parameters = JsonSerializer.Serialize(new Dictionary\u003cstring, object?\u003e\n        {\n            [\"xsappname\"] = \"my-application\",\n            [\"tenant-mode\"] = \"dedicated\",\n        }),\n    });\n\n    // create an instance of the alert-notification service (no configuration necessary)\n    // in additon add a custom timeout for the create and update operation\n    var alertNotificationFreeIndex_subaccountServiceInstanceSubaccountServiceInstance = new Btp.SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n        ServiceplanId = \"b50d1b0b-2059-4f21-a014-2ea87752eb48\",\n        Timeouts = new Btp.Inputs.SubaccountServiceInstanceTimeoutsArgs\n        {\n            Create = \"25m\",\n            Update = \"15m\",\n            Delete = \"15m\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"encoding/json\"\n\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.NewSubaccountServiceInstance(ctx, \"alertNotificationFreeSubaccountServiceInstance\", \u0026btp.SubaccountServiceInstanceArgs{\n\t\t\tSubaccountId:  pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceplanId: pulumi.String(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\ttmpJSON0, err := json.Marshal(map[string]interface{}{\n\t\t\t\"xsappname\":   \"my-application\",\n\t\t\t\"tenant-mode\": \"dedicated\",\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tjson0 := string(tmpJSON0)\n\t\t_, err = btp.NewSubaccountServiceInstance(ctx, \"xsuaaApplication\", \u0026btp.SubaccountServiceInstanceArgs{\n\t\t\tSubaccountId:  pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceplanId: pulumi.String(\"bd5e893f-81dd-4d10-8343-e02975e8ecd8\"),\n\t\t\tParameters:    pulumi.String(json0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = btp.NewSubaccountServiceInstance(ctx, \"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", \u0026btp.SubaccountServiceInstanceArgs{\n\t\t\tSubaccountId:  pulumi.String(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\"),\n\t\t\tServiceplanId: pulumi.String(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\"),\n\t\t\tTimeouts: \u0026btp.SubaccountServiceInstanceTimeoutsArgs{\n\t\t\t\tCreate: pulumi.String(\"25m\"),\n\t\t\t\tUpdate: pulumi.String(\"15m\"),\n\t\t\t\tDelete: pulumi.String(\"15m\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.SubaccountServiceInstance;\nimport com.pulumi.btp.SubaccountServiceInstanceArgs;\nimport com.pulumi.btp.inputs.SubaccountServiceInstanceTimeoutsArgs;\nimport static com.pulumi.codegen.internal.Serialization.*;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var alertNotificationFreeSubaccountServiceInstance = new SubaccountServiceInstance(\"alertNotificationFreeSubaccountServiceInstance\", SubaccountServiceInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceplanId(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\")\n            .build());\n\n        var xsuaaApplication = new SubaccountServiceInstance(\"xsuaaApplication\", SubaccountServiceInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceplanId(\"bd5e893f-81dd-4d10-8343-e02975e8ecd8\")\n            .parameters(serializeJson(\n                jsonObject(\n                    jsonProperty(\"xsappname\", \"my-application\"),\n                    jsonProperty(\"tenant-mode\", \"dedicated\")\n                )))\n            .build());\n\n        var alertNotificationFreeIndex_subaccountServiceInstanceSubaccountServiceInstance = new SubaccountServiceInstance(\"alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance\", SubaccountServiceInstanceArgs.builder()        \n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .serviceplanId(\"b50d1b0b-2059-4f21-a014-2ea87752eb48\")\n            .timeouts(SubaccountServiceInstanceTimeoutsArgs.builder()\n                .create(\"25m\")\n                .update(\"15m\")\n                .delete(\"15m\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # create an instance of the alert-notification service (no configuration necessary)\n  alertNotificationFreeSubaccountServiceInstance:\n    type: btp:SubaccountServiceInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      # The service plan ID can be looked up via the data source btp_subaccount_service_plan\n      serviceplanId: b50d1b0b-2059-4f21-a014-2ea87752eb48\n  # create an xsuaa service instance with additional configurations\n  xsuaaApplication:\n    type: btp:SubaccountServiceInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      # The service plan ID can be looked up via the data source btp_subaccount_service_plan\n      serviceplanId: bd5e893f-81dd-4d10-8343-e02975e8ecd8\n      parameters:\n        fn::toJSON:\n          xsappname: my-application\n          tenant-mode: dedicated\n  # create an instance of the alert-notification service (no configuration necessary)\n  # in additon add a custom timeout for the create and update operation\n  alertNotificationFreeIndex/subaccountServiceInstanceSubaccountServiceInstance:\n    type: btp:SubaccountServiceInstance\n    properties:\n      subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n      # The service plan ID can be looked up via the data source btp_subaccount_service_plan\n      serviceplanId: b50d1b0b-2059-4f21-a014-2ea87752eb48\n      timeouts:\n        create: 25m\n        update: 15m\n        delete: 15m\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n### Restriction The import of service instances that can be configured via parameters only works if the corresponding service offering supports the retrieval of these parameters, which means that the `instances_retrievable` parameter of the service offering must be set to `true`. You can check this setting via the following data sourceterraform data \"btp_subaccount_service_offering\" \"by_name\" {\n\n subaccount_id = \u003cID of your subaccount\u003e\n\n name\n\n\n\n\n\n\n\n\n\n= \u003cname of the service offering\u003e } ",
             "properties": {
                 "context": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    },
+                    "type": "string",
                     "description": "Contextual data for the resource.\n"
                 },
                 "createdDate": {
@@ -4177,10 +4426,7 @@
                 "description": "Input properties used for looking up and filtering SubaccountServiceInstance resources.\n",
                 "properties": {
                     "context": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        },
+                        "type": "string",
                         "description": "Contextual data for the resource.\n"
                     },
                     "createdDate": {
@@ -4596,6 +4842,7 @@
                 "autoCreateShadowUsers",
                 "availableForUserLogon",
                 "description",
+                "domain",
                 "identityProvider",
                 "linkText",
                 "name",
@@ -4709,6 +4956,31 @@
         }
     },
     "functions": {
+        "btp:index/getDirectories:getDirectories": {
+            "description": "Gets all the directories in a global account, including the directories in directories.\n\n__Tip:__\nYou must be assigned to the admin or viewer role of the global account, directory.\n",
+            "outputs": {
+                "description": "A collection of values returned by getDirectories.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the global account.\n",
+                        "deprecationMessage": "Use the `btp_globalaccount` datasource instead"
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/btp:index/getDirectoriesValue:getDirectoriesValue"
+                        },
+                        "description": "The directories contained in the global account.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "id",
+                    "values"
+                ]
+            }
+        },
         "btp:index/getDirectory:getDirectory": {
             "description": "Gets the details about a directory.\n\n__Tip:__\nYou must be assigned to the global account admin role, or the directory admin if the directory is configured to manage its authorizations.\n\n__Further documentation:__\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/account-model\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@pulumi/btp\";\n\nconst byId = btp.getDirectory({\n    id: \"dd005d8b-1fee-4e6b-b6ff-cb9a197b7fe0\",\n});\n```\n```python\nimport pulumi\nimport pulumi_btp as btp\n\nby_id = btp.get_directory(id=\"dd005d8b-1fee-4e6b-b6ff-cb9a197b7fe0\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Btp = Pulumi.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = Btp.GetDirectory.Invoke(new()\n    {\n        Id = \"dd005d8b-1fee-4e6b-b6ff-cb9a197b7fe0\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.LookupDirectory(ctx, \u0026btp.LookupDirectoryArgs{\n\t\t\tId: \"dd005d8b-1fee-4e6b-b6ff-cb9a197b7fe0\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.BtpFunctions;\nimport com.pulumi.btp.inputs.GetDirectoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = BtpFunctions.getDirectory(GetDirectoryArgs.builder()\n            .id(\"dd005d8b-1fee-4e6b-b6ff-cb9a197b7fe0\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byId:\n    fn::invoke:\n      Function: btp:getDirectory\n      Arguments:\n        id: dd005d8b-1fee-4e6b-b6ff-cb9a197b7fe0\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -5119,7 +5391,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "userName": {
                         "type": "string",
@@ -5161,7 +5433,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "roleCollections": {
                         "type": "array",
@@ -5205,7 +5477,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'.\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     }
                 },
                 "type": "object",
@@ -5227,7 +5499,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'.\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "values": {
                         "type": "array",
@@ -5541,6 +5813,50 @@
                 ]
             }
         },
+        "btp:index/getGlobalaccountSecuritySettings:getGlobalaccountSecuritySettings": {
+            "description": "Gets the security settings of a global account.\n\n__Tip:__\nYou must be viewer or administrator of the global account.\n\n__Further documentation:__\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-trusted-domains-for-sap-authorization-and-trust-management-service\u003e\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-token-policy-for-sap-authorization-and-trust-management-service\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@pulumi/btp\";\n\nconst this = btp.getGlobalaccountSecuritySettings({});\n```\n```python\nimport pulumi\nimport pulumi_btp as btp\n\nthis = btp.get_globalaccount_security_settings()\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Btp = Pulumi.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @this = Btp.GetGlobalaccountSecuritySettings.Invoke();\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.LookupGlobalaccountSecuritySettings(ctx, nil, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.BtpFunctions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var this = BtpFunctions.getGlobalaccountSecuritySettings();\n\n    }\n}\n```\n```yaml\nvariables:\n  this:\n    fn::invoke:\n      Function: btp:getGlobalaccountSecuritySettings\n      Arguments: {}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "outputs": {
+                "description": "A collection of values returned by getGlobalaccountSecuritySettings.\n",
+                "properties": {
+                    "accessTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the access token.\n"
+                    },
+                    "customEmailDomains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of domains that are allowed to be used for user authentication.\n"
+                    },
+                    "defaultIdentityProvider": {
+                        "type": "string",
+                        "description": "The global account's default identity provider for platform users. Used to log on to platform tools such as SAP BTP cockpit or the btp CLI.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "refreshTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the refresh token.\n"
+                    },
+                    "treatUsersWithSameEmailAsSameUser": {
+                        "type": "boolean",
+                        "description": "If set to true, users with the same email are treated as same users.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "accessTokenValidity",
+                    "customEmailDomains",
+                    "defaultIdentityProvider",
+                    "refreshTokenValidity",
+                    "treatUsersWithSameEmailAsSameUser",
+                    "id"
+                ]
+            }
+        },
         "btp:index/getGlobalaccountTrustConfiguration:getGlobalaccountTrustConfiguration": {
             "description": "Gets details about a trust configuration.\n\n__Tip:__\nYou must be viewer or administrator of the global account.\n\n__Further documentation:__\n\u003chttps://help.sap.com/docs/btp/sap-btp-neo-environment/platform-identity-provider\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@pulumi/btp\";\n\nconst default = btp.getGlobalaccountTrustConfiguration({\n    origin: \"sap.default\",\n});\nconst custom = btp.getGlobalaccountTrustConfiguration({\n    origin: \"terraformint-platform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_btp as btp\n\ndefault = btp.get_globalaccount_trust_configuration(origin=\"sap.default\")\ncustom = btp.get_globalaccount_trust_configuration(origin=\"terraformint-platform\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Btp = Pulumi.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var @default = Btp.GetGlobalaccountTrustConfiguration.Invoke(new()\n    {\n        Origin = \"sap.default\",\n    });\n\n    var custom = Btp.GetGlobalaccountTrustConfiguration.Invoke(new()\n    {\n        Origin = \"terraformint-platform\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.LookupGlobalaccountTrustConfiguration(ctx, \u0026btp.LookupGlobalaccountTrustConfigurationArgs{\n\t\t\tOrigin: \"sap.default\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = btp.LookupGlobalaccountTrustConfiguration(ctx, \u0026btp.LookupGlobalaccountTrustConfigurationArgs{\n\t\t\tOrigin: \"terraformint-platform\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.BtpFunctions;\nimport com.pulumi.btp.inputs.GetGlobalaccountTrustConfigurationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var default = BtpFunctions.getGlobalaccountTrustConfiguration(GetGlobalaccountTrustConfigurationArgs.builder()\n            .origin(\"sap.default\")\n            .build());\n\n        final var custom = BtpFunctions.getGlobalaccountTrustConfiguration(GetGlobalaccountTrustConfigurationArgs.builder()\n            .origin(\"terraformint-platform\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  default:\n    fn::invoke:\n      Function: btp:getGlobalaccountTrustConfiguration\n      Arguments:\n        origin: sap.default\n  custom:\n    fn::invoke:\n      Function: btp:getGlobalaccountTrustConfiguration\n      Arguments:\n        origin: terraformint-platform\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -5648,7 +5964,7 @@
                 "properties": {
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "userName": {
                         "type": "string",
@@ -5685,7 +6001,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "roleCollections": {
                         "type": "array",
@@ -5724,7 +6040,7 @@
                 "properties": {
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'.\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     }
                 },
                 "type": "object"
@@ -5739,7 +6055,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'.\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "values": {
                         "type": "array",
@@ -6566,6 +6882,68 @@
                 ]
             }
         },
+        "btp:index/getSubaccountSecuritySettings:getSubaccountSecuritySettings": {
+            "description": "Gets the security settings of a subaccount.\n\n__Tip:__\nYou must be viewer or administrator of the subaccount.\n\n__Further documentation:__\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-trusted-domains-for-sap-authorization-and-trust-management-service\u003e\n\u003chttps://help.sap.com/docs/btp/sap-business-technology-platform/configure-token-policy-for-sap-authorization-and-trust-management-service\u003e\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@pulumi/btp\";\n\nconst subaccount = btp.getSubaccountSecuritySettings({\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n});\n```\n```python\nimport pulumi\nimport pulumi_btp as btp\n\nsubaccount = btp.get_subaccount_security_settings(subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Btp = Pulumi.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var subaccount = Btp.GetSubaccountSecuritySettings.Invoke(new()\n    {\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.LookupSubaccountSecuritySettings(ctx, \u0026btp.LookupSubaccountSecuritySettingsArgs{\n\t\t\tSubaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.BtpFunctions;\nimport com.pulumi.btp.inputs.GetSubaccountSecuritySettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var subaccount = BtpFunctions.getSubaccountSecuritySettings(GetSubaccountSecuritySettingsArgs.builder()\n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  subaccount:\n    fn::invoke:\n      Function: btp:getSubaccountSecuritySettings\n      Arguments:\n        subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getSubaccountSecuritySettings.\n",
+                "properties": {
+                    "subaccountId": {
+                        "type": "string",
+                        "description": "The ID of the subaccount.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "subaccountId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getSubaccountSecuritySettings.\n",
+                "properties": {
+                    "accessTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the access token.\n"
+                    },
+                    "customEmailDomains": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Set of domains that are allowed to be used for user authentication.\n"
+                    },
+                    "defaultIdentityProvider": {
+                        "type": "string",
+                        "description": "The subaccount's default identity provider for business application users.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "refreshTokenValidity": {
+                        "type": "integer",
+                        "description": "The validity of the refresh token.\n"
+                    },
+                    "subaccountId": {
+                        "type": "string",
+                        "description": "The ID of the subaccount.\n"
+                    },
+                    "treatUsersWithSameEmailAsSameUser": {
+                        "type": "boolean",
+                        "description": "If set to true, users with the same email are treated as same users.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "accessTokenValidity",
+                    "customEmailDomains",
+                    "defaultIdentityProvider",
+                    "refreshTokenValidity",
+                    "subaccountId",
+                    "treatUsersWithSameEmailAsSameUser",
+                    "id"
+                ]
+            }
+        },
         "btp:index/getSubaccountServiceBinding:getSubaccountServiceBinding": {
             "description": "Gets details about a specific service binding, such as its access details. They are included in its 'credentials' property, and typically include access URLs and credentials.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as btp from \"@pulumi/btp\";\n\nconst byId = btp.getSubaccountServiceBinding({\n    id: \"c2d02852-1678-4c1e-b546-74d5274f1522\",\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n});\nconst byName = btp.getSubaccountServiceBinding({\n    name: \"hyperspace-2022-10\",\n    subaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n});\n```\n```python\nimport pulumi\nimport pulumi_btp as btp\n\nby_id = btp.get_subaccount_service_binding(id=\"c2d02852-1678-4c1e-b546-74d5274f1522\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\nby_name = btp.get_subaccount_service_binding(name=\"hyperspace-2022-10\",\n    subaccount_id=\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Btp = Pulumi.Btp;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var byId = Btp.GetSubaccountServiceBinding.Invoke(new()\n    {\n        Id = \"c2d02852-1678-4c1e-b546-74d5274f1522\",\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    });\n\n    var byName = Btp.GetSubaccountServiceBinding.Invoke(new()\n    {\n        Name = \"hyperspace-2022-10\",\n        SubaccountId = \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/lechnerc77/pulumi-btp/sdk/go/btp\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := btp.LookupSubaccountServiceBinding(ctx, \u0026btp.LookupSubaccountServiceBindingArgs{\n\t\t\tId:           pulumi.StringRef(\"c2d02852-1678-4c1e-b546-74d5274f1522\"),\n\t\t\tSubaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = btp.LookupSubaccountServiceBinding(ctx, \u0026btp.LookupSubaccountServiceBindingArgs{\n\t\t\tName:         pulumi.StringRef(\"hyperspace-2022-10\"),\n\t\t\tSubaccountId: \"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.btp.BtpFunctions;\nimport com.pulumi.btp.inputs.GetSubaccountServiceBindingArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var byId = BtpFunctions.getSubaccountServiceBinding(GetSubaccountServiceBindingArgs.builder()\n            .id(\"c2d02852-1678-4c1e-b546-74d5274f1522\")\n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .build());\n\n        final var byName = BtpFunctions.getSubaccountServiceBinding(GetSubaccountServiceBindingArgs.builder()\n            .name(\"hyperspace-2022-10\")\n            .subaccountId(\"6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  byId:\n    fn::invoke:\n      Function: btp:getSubaccountServiceBinding\n      Arguments:\n        id: c2d02852-1678-4c1e-b546-74d5274f1522\n        subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n  byName:\n    fn::invoke:\n      Function: btp:getSubaccountServiceBinding\n      Arguments:\n        name: hyperspace-2022-10\n        subaccountId: 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
@@ -6600,10 +6978,7 @@
                         "description": "Contains the resources associated with the binding.\n"
                     },
                     "context": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        },
+                        "type": "string",
                         "description": "Contextual data for the resource.\n"
                     },
                     "createdDate": {
@@ -6761,10 +7136,7 @@
                 "description": "A collection of values returned by getSubaccountServiceInstance.\n",
                 "properties": {
                     "context": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        },
+                        "type": "string",
                         "description": "Contextual data for the resource.\n"
                     },
                     "createdDate": {
@@ -7618,7 +7990,7 @@
                 "properties": {
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "subaccountId": {
                         "type": "string",
@@ -7660,7 +8032,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "roleCollections": {
                         "type": "array",
@@ -7704,7 +8076,7 @@
                 "properties": {
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'.\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "subaccountId": {
                         "type": "string",
@@ -7726,7 +8098,7 @@
                     },
                     "origin": {
                         "type": "string",
-                        "description": "The identity provider that hosts the user. The default value is 'ldap'.\n"
+                        "description": "The identity provider that hosts the user. Only needed for custom identity provider.\n"
                     },
                     "subaccountId": {
                         "type": "string",

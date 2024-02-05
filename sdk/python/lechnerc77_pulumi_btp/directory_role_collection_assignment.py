@@ -28,7 +28,7 @@ class DirectoryRoleCollectionAssignmentArgs:
         :param pulumi.Input[str] attribute_name: The name of the attribute to assign.
         :param pulumi.Input[str] attribute_value: The value of the attribute to assign.
         :param pulumi.Input[str] group_name: The name of the group to assign.
-        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. The default value is `ldap`.
+        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. Only needed for custom identity provider.
         :param pulumi.Input[str] user_name: The username of the user to assign.
         """
         pulumi.set(__self__, "directory_id", directory_id)
@@ -108,7 +108,7 @@ class DirectoryRoleCollectionAssignmentArgs:
     @pulumi.getter
     def origin(self) -> Optional[pulumi.Input[str]]:
         """
-        The identity provider that hosts the user or a group. The default value is `ldap`.
+        The identity provider that hosts the user or a group. Only needed for custom identity provider.
         """
         return pulumi.get(self, "origin")
 
@@ -145,7 +145,7 @@ class _DirectoryRoleCollectionAssignmentState:
         :param pulumi.Input[str] attribute_value: The value of the attribute to assign.
         :param pulumi.Input[str] directory_id: The ID of the directory.
         :param pulumi.Input[str] group_name: The name of the group to assign.
-        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. The default value is `ldap`.
+        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. Only needed for custom identity provider.
         :param pulumi.Input[str] role_collection_name: The name of the role collection.
         :param pulumi.Input[str] user_name: The username of the user to assign.
         """
@@ -216,7 +216,7 @@ class _DirectoryRoleCollectionAssignmentState:
     @pulumi.getter
     def origin(self) -> Optional[pulumi.Input[str]]:
         """
-        The identity provider that hosts the user or a group. The default value is `ldap`.
+        The identity provider that hosts the user or a group. Only needed for custom identity provider.
         """
         return pulumi.get(self, "origin")
 
@@ -289,7 +289,7 @@ class DirectoryRoleCollectionAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] attribute_value: The value of the attribute to assign.
         :param pulumi.Input[str] directory_id: The ID of the directory.
         :param pulumi.Input[str] group_name: The name of the group to assign.
-        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. The default value is `ldap`.
+        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. Only needed for custom identity provider.
         :param pulumi.Input[str] role_collection_name: The name of the role collection.
         :param pulumi.Input[str] user_name: The username of the user to assign.
         """
@@ -390,7 +390,7 @@ class DirectoryRoleCollectionAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] attribute_value: The value of the attribute to assign.
         :param pulumi.Input[str] directory_id: The ID of the directory.
         :param pulumi.Input[str] group_name: The name of the group to assign.
-        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. The default value is `ldap`.
+        :param pulumi.Input[str] origin: The identity provider that hosts the user or a group. Only needed for custom identity provider.
         :param pulumi.Input[str] role_collection_name: The name of the role collection.
         :param pulumi.Input[str] user_name: The username of the user to assign.
         """
@@ -443,7 +443,7 @@ class DirectoryRoleCollectionAssignment(pulumi.CustomResource):
     @pulumi.getter
     def origin(self) -> pulumi.Output[str]:
         """
-        The identity provider that hosts the user or a group. The default value is `ldap`.
+        The identity provider that hosts the user or a group. Only needed for custom identity provider.
         """
         return pulumi.get(self, "origin")
 

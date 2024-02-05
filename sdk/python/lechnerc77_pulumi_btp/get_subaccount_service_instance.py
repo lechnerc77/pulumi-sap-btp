@@ -22,8 +22,8 @@ class GetSubaccountServiceInstanceResult:
     A collection of values returned by getSubaccountServiceInstance.
     """
     def __init__(__self__, context=None, created_date=None, id=None, labels=None, last_modified=None, name=None, parameters=None, platform_id=None, ready=None, referenced_instance_id=None, serviceplan_id=None, shared=None, state=None, subaccount_id=None, usable=None):
-        if context and not isinstance(context, dict):
-            raise TypeError("Expected argument 'context' to be a dict")
+        if context and not isinstance(context, str):
+            raise TypeError("Expected argument 'context' to be a str")
         pulumi.set(__self__, "context", context)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
@@ -70,7 +70,7 @@ class GetSubaccountServiceInstanceResult:
 
     @property
     @pulumi.getter
-    def context(self) -> Mapping[str, str]:
+    def context(self) -> str:
         """
         Contextual data for the resource.
         """

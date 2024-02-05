@@ -101,7 +101,7 @@ class SubaccountServiceBindingArgs:
 class _SubaccountServiceBindingState:
     def __init__(__self__, *,
                  bind_resource: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  credentials: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
@@ -115,7 +115,7 @@ class _SubaccountServiceBindingState:
         """
         Input properties used for looking up and filtering SubaccountServiceBinding resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] bind_resource: Contains the resources associated with the binding.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] context: The contextual data for the resource.
+        :param pulumi.Input[str] context: The contextual data for the resource.
         :param pulumi.Input[str] created_date: The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
         :param pulumi.Input[str] credentials: The credentials to access the binding.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] labels: The set of words or phrases assigned to the service binding.
@@ -166,14 +166,14 @@ class _SubaccountServiceBindingState:
 
     @property
     @pulumi.getter
-    def context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def context(self) -> Optional[pulumi.Input[str]]:
         """
         The contextual data for the resource.
         """
         return pulumi.get(self, "context")
 
     @context.setter
-    def context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def context(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "context", value)
 
     @property
@@ -452,7 +452,7 @@ class SubaccountServiceBinding(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bind_resource: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            context: Optional[pulumi.Input[str]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             credentials: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
@@ -471,7 +471,7 @@ class SubaccountServiceBinding(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] bind_resource: Contains the resources associated with the binding.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] context: The contextual data for the resource.
+        :param pulumi.Input[str] context: The contextual data for the resource.
         :param pulumi.Input[str] created_date: The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
         :param pulumi.Input[str] credentials: The credentials to access the binding.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] labels: The set of words or phrases assigned to the service binding.
@@ -511,7 +511,7 @@ class SubaccountServiceBinding(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def context(self) -> pulumi.Output[Mapping[str, str]]:
+    def context(self) -> pulumi.Output[str]:
         """
         The contextual data for the resource.
         """

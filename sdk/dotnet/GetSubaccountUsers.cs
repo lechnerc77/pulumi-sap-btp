@@ -91,7 +91,7 @@ namespace PulumiBtp.Btp
     public sealed class GetSubaccountUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identity provider that hosts the user. The default value is 'ldap'.
+        /// The identity provider that hosts the user. Only needed for custom identity provider.
         /// </summary>
         [Input("origin")]
         public string? Origin { get; set; }
@@ -111,7 +111,7 @@ namespace PulumiBtp.Btp
     public sealed class GetSubaccountUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The identity provider that hosts the user. The default value is 'ldap'.
+        /// The identity provider that hosts the user. Only needed for custom identity provider.
         /// </summary>
         [Input("origin")]
         public Input<string>? Origin { get; set; }
@@ -137,7 +137,7 @@ namespace PulumiBtp.Btp
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity provider that hosts the user. The default value is 'ldap'.
+        /// The identity provider that hosts the user. Only needed for custom identity provider.
         /// </summary>
         public readonly string Origin;
         /// <summary>

@@ -33,7 +33,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def idp(self) -> Optional[str]:
         """
-        The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        The identity provider to be used for authentication (only required for custom idp).
         """
         return __config__.get('idp')
 

@@ -33,7 +33,7 @@ namespace PulumiBtp.Btp
         public Output<string> Globalaccount { get; private set; } = null!;
 
         /// <summary>
-        /// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        /// The identity provider to be used for authentication (only required for custom idp).
         /// </summary>
         [Output("idp")]
         public Output<string?> Idp { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace PulumiBtp.Btp
         public Input<string> Globalaccount { get; set; } = null!;
 
         /// <summary>
-        /// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        /// The identity provider to be used for authentication (only required for custom idp).
         /// </summary>
         [Input("idp")]
         public Input<string>? Idp { get; set; }

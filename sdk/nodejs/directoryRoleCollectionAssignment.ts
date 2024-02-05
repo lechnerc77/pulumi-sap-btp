@@ -72,7 +72,7 @@ export class DirectoryRoleCollectionAssignment extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string | undefined>;
     /**
-     * The identity provider that hosts the user or a group. The default value is `ldap`.
+     * The identity provider that hosts the user or a group. Only needed for custom identity provider.
      */
     public readonly origin!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface DirectoryRoleCollectionAssignmentState {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * The identity provider that hosts the user or a group. The default value is `ldap`.
+     * The identity provider that hosts the user or a group. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface DirectoryRoleCollectionAssignmentArgs {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * The identity provider that hosts the user or a group. The default value is `ldap`.
+     * The identity provider that hosts the user or a group. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**

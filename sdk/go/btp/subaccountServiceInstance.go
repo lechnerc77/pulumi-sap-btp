@@ -74,24 +74,18 @@ import (
 //
 // ## Import
 //
-// terraform
+// ### Restriction The import of service instances that can be configured via parameters only works if the corresponding service offering supports the retrieval of these parameters, which means that the `instances_retrievable` parameter of the service offering must be set to `true`. You can check this setting via the following data sourceterraform data "btp_subaccount_service_offering" "by_name" {
 //
-// ```sh
+//	subaccount_id = <ID of your subaccount>
 //
-//	$ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance <resource_name> <subaccount_id>,<service_instance_id>
+//	name
 //
-// ```
-//
-// ```sh
-//
-//	$ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance alert_notification_free 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,6a55f158-41b5-4e63-aa77-84089fa0ab98
-//
-// ```
+// = <name of the service offering> }
 type SubaccountServiceInstance struct {
 	pulumi.CustomResourceState
 
 	// Contextual data for the resource.
-	Context pulumi.StringMapOutput `pulumi:"context"`
+	Context pulumi.StringOutput `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The set of words or phrases assigned to the service instance.
@@ -164,7 +158,7 @@ func GetSubaccountServiceInstance(ctx *pulumi.Context,
 // Input properties used for looking up and filtering SubaccountServiceInstance resources.
 type subaccountServiceInstanceState struct {
 	// Contextual data for the resource.
-	Context map[string]string `pulumi:"context"`
+	Context *string `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The set of words or phrases assigned to the service instance.
@@ -195,7 +189,7 @@ type subaccountServiceInstanceState struct {
 
 type SubaccountServiceInstanceState struct {
 	// Contextual data for the resource.
-	Context pulumi.StringMapInput
+	Context pulumi.StringPtrInput
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate pulumi.StringPtrInput
 	// The set of words or phrases assigned to the service instance.
@@ -369,8 +363,8 @@ func (o SubaccountServiceInstanceOutput) ToOutput(ctx context.Context) pulumix.O
 }
 
 // Contextual data for the resource.
-func (o SubaccountServiceInstanceOutput) Context() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SubaccountServiceInstance) pulumi.StringMapOutput { return v.Context }).(pulumi.StringMapOutput)
+func (o SubaccountServiceInstanceOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubaccountServiceInstance) pulumi.StringOutput { return v.Context }).(pulumi.StringOutput)
 }
 
 // The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.

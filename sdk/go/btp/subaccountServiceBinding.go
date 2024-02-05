@@ -81,7 +81,7 @@ type SubaccountServiceBinding struct {
 	// Contains the resources associated with the binding.
 	BindResource pulumi.StringMapOutput `pulumi:"bindResource"`
 	// The contextual data for the resource.
-	Context pulumi.StringMapOutput `pulumi:"context"`
+	Context pulumi.StringOutput `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The credentials to access the binding.
@@ -147,7 +147,7 @@ type subaccountServiceBindingState struct {
 	// Contains the resources associated with the binding.
 	BindResource map[string]string `pulumi:"bindResource"`
 	// The contextual data for the resource.
-	Context map[string]string `pulumi:"context"`
+	Context *string `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate *string `pulumi:"createdDate"`
 	// The credentials to access the binding.
@@ -174,7 +174,7 @@ type SubaccountServiceBindingState struct {
 	// Contains the resources associated with the binding.
 	BindResource pulumi.StringMapInput
 	// The contextual data for the resource.
-	Context pulumi.StringMapInput
+	Context pulumi.StringPtrInput
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate pulumi.StringPtrInput
 	// The credentials to access the binding.
@@ -345,8 +345,8 @@ func (o SubaccountServiceBindingOutput) BindResource() pulumi.StringMapOutput {
 }
 
 // The contextual data for the resource.
-func (o SubaccountServiceBindingOutput) Context() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SubaccountServiceBinding) pulumi.StringMapOutput { return v.Context }).(pulumi.StringMapOutput)
+func (o SubaccountServiceBindingOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubaccountServiceBinding) pulumi.StringOutput { return v.Context }).(pulumi.StringOutput)
 }
 
 // The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.

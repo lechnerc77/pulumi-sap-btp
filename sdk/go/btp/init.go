@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GlobalaccountRoleCollection{}
 	case "btp:index/globalaccountRoleCollectionAssignment:GlobalaccountRoleCollectionAssignment":
 		r = &GlobalaccountRoleCollectionAssignment{}
+	case "btp:index/globalaccountSecuritySettings:GlobalaccountSecuritySettings":
+		r = &GlobalaccountSecuritySettings{}
 	case "btp:index/globalaccountTrustConfiguration:GlobalaccountTrustConfiguration":
 		r = &GlobalaccountTrustConfiguration{}
 	case "btp:index/subaccount:Subaccount":
@@ -47,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SubaccountRoleCollection{}
 	case "btp:index/subaccountRoleCollectionAssignment:SubaccountRoleCollectionAssignment":
 		r = &SubaccountRoleCollectionAssignment{}
+	case "btp:index/subaccountSecuritySettings:SubaccountSecuritySettings":
+		r = &SubaccountSecuritySettings{}
 	case "btp:index/subaccountServiceBinding:SubaccountServiceBinding":
 		r = &SubaccountServiceBinding{}
 	case "btp:index/subaccountServiceInstance:SubaccountServiceInstance":
@@ -123,6 +127,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"btp",
+		"index/globalaccountSecuritySettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"btp",
 		"index/globalaccountTrustConfiguration",
 		&module{version},
 	)
@@ -149,6 +158,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"btp",
 		"index/subaccountRoleCollectionAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"btp",
+		"index/subaccountSecuritySettings",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

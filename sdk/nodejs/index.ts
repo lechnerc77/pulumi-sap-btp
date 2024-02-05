@@ -25,6 +25,11 @@ export type DirectoryRoleCollectionAssignment = import("./directoryRoleCollectio
 export const DirectoryRoleCollectionAssignment: typeof import("./directoryRoleCollectionAssignment").DirectoryRoleCollectionAssignment = null as any;
 utilities.lazyLoad(exports, ["DirectoryRoleCollectionAssignment"], () => require("./directoryRoleCollectionAssignment"));
 
+export { GetDirectoriesResult } from "./getDirectories";
+export const getDirectories: typeof import("./getDirectories").getDirectories = null as any;
+export const getDirectoriesOutput: typeof import("./getDirectories").getDirectoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getDirectories","getDirectoriesOutput"], () => require("./getDirectories"));
+
 export { GetDirectoryArgs, GetDirectoryResult, GetDirectoryOutputArgs } from "./getDirectory";
 export const getDirectory: typeof import("./getDirectory").getDirectory = null as any;
 export const getDirectoryOutput: typeof import("./getDirectory").getDirectoryOutput = null as any;
@@ -99,6 +104,11 @@ export { GetGlobalaccountRolesResult } from "./getGlobalaccountRoles";
 export const getGlobalaccountRoles: typeof import("./getGlobalaccountRoles").getGlobalaccountRoles = null as any;
 export const getGlobalaccountRolesOutput: typeof import("./getGlobalaccountRoles").getGlobalaccountRolesOutput = null as any;
 utilities.lazyLoad(exports, ["getGlobalaccountRoles","getGlobalaccountRolesOutput"], () => require("./getGlobalaccountRoles"));
+
+export { GetGlobalaccountSecuritySettingsResult } from "./getGlobalaccountSecuritySettings";
+export const getGlobalaccountSecuritySettings: typeof import("./getGlobalaccountSecuritySettings").getGlobalaccountSecuritySettings = null as any;
+export const getGlobalaccountSecuritySettingsOutput: typeof import("./getGlobalaccountSecuritySettings").getGlobalaccountSecuritySettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalaccountSecuritySettings","getGlobalaccountSecuritySettingsOutput"], () => require("./getGlobalaccountSecuritySettings"));
 
 export { GetGlobalaccountTrustConfigurationArgs, GetGlobalaccountTrustConfigurationResult, GetGlobalaccountTrustConfigurationOutputArgs } from "./getGlobalaccountTrustConfiguration";
 export const getGlobalaccountTrustConfiguration: typeof import("./getGlobalaccountTrustConfiguration").getGlobalaccountTrustConfiguration = null as any;
@@ -184,6 +194,11 @@ export { GetSubaccountRolesArgs, GetSubaccountRolesResult, GetSubaccountRolesOut
 export const getSubaccountRoles: typeof import("./getSubaccountRoles").getSubaccountRoles = null as any;
 export const getSubaccountRolesOutput: typeof import("./getSubaccountRoles").getSubaccountRolesOutput = null as any;
 utilities.lazyLoad(exports, ["getSubaccountRoles","getSubaccountRolesOutput"], () => require("./getSubaccountRoles"));
+
+export { GetSubaccountSecuritySettingsArgs, GetSubaccountSecuritySettingsResult, GetSubaccountSecuritySettingsOutputArgs } from "./getSubaccountSecuritySettings";
+export const getSubaccountSecuritySettings: typeof import("./getSubaccountSecuritySettings").getSubaccountSecuritySettings = null as any;
+export const getSubaccountSecuritySettingsOutput: typeof import("./getSubaccountSecuritySettings").getSubaccountSecuritySettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getSubaccountSecuritySettings","getSubaccountSecuritySettingsOutput"], () => require("./getSubaccountSecuritySettings"));
 
 export { GetSubaccountServiceBindingArgs, GetSubaccountServiceBindingResult, GetSubaccountServiceBindingOutputArgs } from "./getSubaccountServiceBinding";
 export const getSubaccountServiceBinding: typeof import("./getSubaccountServiceBinding").getSubaccountServiceBinding = null as any;
@@ -280,6 +295,11 @@ export type GlobalaccountRoleCollectionAssignment = import("./globalaccountRoleC
 export const GlobalaccountRoleCollectionAssignment: typeof import("./globalaccountRoleCollectionAssignment").GlobalaccountRoleCollectionAssignment = null as any;
 utilities.lazyLoad(exports, ["GlobalaccountRoleCollectionAssignment"], () => require("./globalaccountRoleCollectionAssignment"));
 
+export { GlobalaccountSecuritySettingsArgs, GlobalaccountSecuritySettingsState } from "./globalaccountSecuritySettings";
+export type GlobalaccountSecuritySettings = import("./globalaccountSecuritySettings").GlobalaccountSecuritySettings;
+export const GlobalaccountSecuritySettings: typeof import("./globalaccountSecuritySettings").GlobalaccountSecuritySettings = null as any;
+utilities.lazyLoad(exports, ["GlobalaccountSecuritySettings"], () => require("./globalaccountSecuritySettings"));
+
 export { GlobalaccountTrustConfigurationArgs, GlobalaccountTrustConfigurationState } from "./globalaccountTrustConfiguration";
 export type GlobalaccountTrustConfiguration = import("./globalaccountTrustConfiguration").GlobalaccountTrustConfiguration;
 export const GlobalaccountTrustConfiguration: typeof import("./globalaccountTrustConfiguration").GlobalaccountTrustConfiguration = null as any;
@@ -314,6 +334,11 @@ export { SubaccountRoleCollectionAssignmentArgs, SubaccountRoleCollectionAssignm
 export type SubaccountRoleCollectionAssignment = import("./subaccountRoleCollectionAssignment").SubaccountRoleCollectionAssignment;
 export const SubaccountRoleCollectionAssignment: typeof import("./subaccountRoleCollectionAssignment").SubaccountRoleCollectionAssignment = null as any;
 utilities.lazyLoad(exports, ["SubaccountRoleCollectionAssignment"], () => require("./subaccountRoleCollectionAssignment"));
+
+export { SubaccountSecuritySettingsArgs, SubaccountSecuritySettingsState } from "./subaccountSecuritySettings";
+export type SubaccountSecuritySettings = import("./subaccountSecuritySettings").SubaccountSecuritySettings;
+export const SubaccountSecuritySettings: typeof import("./subaccountSecuritySettings").SubaccountSecuritySettings = null as any;
+utilities.lazyLoad(exports, ["SubaccountSecuritySettings"], () => require("./subaccountSecuritySettings"));
 
 export { SubaccountServiceBindingArgs, SubaccountServiceBindingState } from "./subaccountServiceBinding";
 export type SubaccountServiceBinding = import("./subaccountServiceBinding").SubaccountServiceBinding;
@@ -363,6 +388,8 @@ const _module = {
                 return new GlobalaccountRoleCollection(name, <any>undefined, { urn })
             case "btp:index/globalaccountRoleCollectionAssignment:GlobalaccountRoleCollectionAssignment":
                 return new GlobalaccountRoleCollectionAssignment(name, <any>undefined, { urn })
+            case "btp:index/globalaccountSecuritySettings:GlobalaccountSecuritySettings":
+                return new GlobalaccountSecuritySettings(name, <any>undefined, { urn })
             case "btp:index/globalaccountTrustConfiguration:GlobalaccountTrustConfiguration":
                 return new GlobalaccountTrustConfiguration(name, <any>undefined, { urn })
             case "btp:index/subaccount:Subaccount":
@@ -375,6 +402,8 @@ const _module = {
                 return new SubaccountRoleCollection(name, <any>undefined, { urn })
             case "btp:index/subaccountRoleCollectionAssignment:SubaccountRoleCollectionAssignment":
                 return new SubaccountRoleCollectionAssignment(name, <any>undefined, { urn })
+            case "btp:index/subaccountSecuritySettings:SubaccountSecuritySettings":
+                return new SubaccountSecuritySettings(name, <any>undefined, { urn })
             case "btp:index/subaccountServiceBinding:SubaccountServiceBinding":
                 return new SubaccountServiceBinding(name, <any>undefined, { urn })
             case "btp:index/subaccountServiceInstance:SubaccountServiceInstance":
@@ -395,12 +424,14 @@ pulumi.runtime.registerResourceModule("btp", "index/directoryRoleCollectionAssig
 pulumi.runtime.registerResourceModule("btp", "index/globalaccountResourceProvider", _module)
 pulumi.runtime.registerResourceModule("btp", "index/globalaccountRoleCollection", _module)
 pulumi.runtime.registerResourceModule("btp", "index/globalaccountRoleCollectionAssignment", _module)
+pulumi.runtime.registerResourceModule("btp", "index/globalaccountSecuritySettings", _module)
 pulumi.runtime.registerResourceModule("btp", "index/globalaccountTrustConfiguration", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccount", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccountEntitlement", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccountEnvironmentInstance", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccountRoleCollection", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccountRoleCollectionAssignment", _module)
+pulumi.runtime.registerResourceModule("btp", "index/subaccountSecuritySettings", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccountServiceBinding", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccountServiceInstance", _module)
 pulumi.runtime.registerResourceModule("btp", "index/subaccountSubscription", _module)

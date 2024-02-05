@@ -94,7 +94,7 @@ class GetGlobalaccountUserResult:
     @pulumi.getter
     def origin(self) -> str:
         """
-        The identity provider that hosts the user. The default value is 'ldap'
+        The identity provider that hosts the user. Only needed for custom identity provider.
         """
         return pulumi.get(self, "origin")
 
@@ -158,7 +158,7 @@ def get_globalaccount_user(origin: Optional[str] = None,
     ```
 
 
-    :param str origin: The identity provider that hosts the user. The default value is 'ldap'
+    :param str origin: The identity provider that hosts the user. Only needed for custom identity provider.
     :param str user_name: The username of the user.
     """
     __args__ = dict()
@@ -198,7 +198,7 @@ def get_globalaccount_user_output(origin: Optional[pulumi.Input[Optional[str]]] 
     ```
 
 
-    :param str origin: The identity provider that hosts the user. The default value is 'ldap'
+    :param str origin: The identity provider that hosts the user. Only needed for custom identity provider.
     :param str user_name: The username of the user.
     """
     ...

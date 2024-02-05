@@ -55,7 +55,7 @@ namespace PulumiBtp.Btp
 
         private static readonly __Value<string?> _idp = new __Value<string?>(() => __config.Get("idp"));
         /// <summary>
-        /// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+        /// The identity provider to be used for authentication (only required for custom idp).
         /// </summary>
         public static string? Idp
         {

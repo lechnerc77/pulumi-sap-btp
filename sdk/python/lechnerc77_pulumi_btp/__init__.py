@@ -9,6 +9,7 @@ from .directory import *
 from .directory_entitlement import *
 from .directory_role_collection import *
 from .directory_role_collection_assignment import *
+from .get_directories import *
 from .get_directory import *
 from .get_directory_entitlements import *
 from .get_directory_labels import *
@@ -24,6 +25,7 @@ from .get_globalaccount_role import *
 from .get_globalaccount_role_collection import *
 from .get_globalaccount_role_collections import *
 from .get_globalaccount_roles import *
+from .get_globalaccount_security_settings import *
 from .get_globalaccount_trust_configuration import *
 from .get_globalaccount_trust_configurations import *
 from .get_globalaccount_user import *
@@ -41,6 +43,7 @@ from .get_subaccount_role import *
 from .get_subaccount_role_collection import *
 from .get_subaccount_role_collections import *
 from .get_subaccount_roles import *
+from .get_subaccount_security_settings import *
 from .get_subaccount_service_binding import *
 from .get_subaccount_service_bindings import *
 from .get_subaccount_service_instance import *
@@ -60,6 +63,7 @@ from .get_whoami import *
 from .globalaccount_resource_provider import *
 from .globalaccount_role_collection import *
 from .globalaccount_role_collection_assignment import *
+from .globalaccount_security_settings import *
 from .globalaccount_trust_configuration import *
 from .provider import *
 from .subaccount import *
@@ -67,6 +71,7 @@ from .subaccount_entitlement import *
 from .subaccount_environment_instance import *
 from .subaccount_role_collection import *
 from .subaccount_role_collection_assignment import *
+from .subaccount_security_settings import *
 from .subaccount_service_binding import *
 from .subaccount_service_instance import *
 from .subaccount_subscription import *
@@ -142,6 +147,14 @@ _utilities.register(
  },
  {
   "pkg": "btp",
+  "mod": "index/globalaccountSecuritySettings",
+  "fqn": "lechnerc77_pulumi_btp",
+  "classes": {
+   "btp:index/globalaccountSecuritySettings:GlobalaccountSecuritySettings": "GlobalaccountSecuritySettings"
+  }
+ },
+ {
+  "pkg": "btp",
   "mod": "index/globalaccountTrustConfiguration",
   "fqn": "lechnerc77_pulumi_btp",
   "classes": {
@@ -186,6 +199,14 @@ _utilities.register(
   "fqn": "lechnerc77_pulumi_btp",
   "classes": {
    "btp:index/subaccountRoleCollectionAssignment:SubaccountRoleCollectionAssignment": "SubaccountRoleCollectionAssignment"
+  }
+ },
+ {
+  "pkg": "btp",
+  "mod": "index/subaccountSecuritySettings",
+  "fqn": "lechnerc77_pulumi_btp",
+  "classes": {
+   "btp:index/subaccountSecuritySettings:SubaccountSecuritySettings": "SubaccountSecuritySettings"
   }
  },
  {

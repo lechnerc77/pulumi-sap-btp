@@ -20,6 +20,35 @@ export interface DirectoryRoleCollectionRole {
     roleTemplateName: string;
 }
 
+export interface GetDirectoriesValue {
+    /**
+     * The details of the user that created the directory.
+     */
+    createdBy: string;
+    /**
+     * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+     */
+    createdDate: string;
+    /**
+     * The description of the directory.
+     */
+    description: string;
+    /**
+     * The features that are enabled for the directory. Possible values are:
+     */
+    features: string[];
+    /**
+     * The ID of the directory.
+     */
+    id: string;
+    labels: {[key: string]: string[]};
+    lastModified: string;
+    name: string;
+    parentId: string;
+    state: string;
+    subdomain: string;
+}
+
 export interface GetDirectoryEntitlementsValues {
     /**
      * The current state of the entitlement. Possible values are:
@@ -602,7 +631,7 @@ export interface GetSubaccountServiceBindingsValue {
     /**
      * Contextual data for the resource.
      */
-    context: {[key: string]: string};
+    context: string;
     /**
      * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
      */
@@ -641,7 +670,7 @@ export interface GetSubaccountServiceInstancesValue {
     /**
      * Contextual data for the resource.
      */
-    context: {[key: string]: string};
+    context: string;
     /**
      * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
      */

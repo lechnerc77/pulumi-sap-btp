@@ -8,18 +8,21 @@
             "btp:index/globalaccountResourceProvider:GlobalaccountResourceProvider": "btp_globalaccount_resource_provider",
             "btp:index/globalaccountRoleCollection:GlobalaccountRoleCollection": "btp_globalaccount_role_collection",
             "btp:index/globalaccountRoleCollectionAssignment:GlobalaccountRoleCollectionAssignment": "btp_globalaccount_role_collection_assignment",
+            "btp:index/globalaccountSecuritySettings:GlobalaccountSecuritySettings": "btp_globalaccount_security_settings",
             "btp:index/globalaccountTrustConfiguration:GlobalaccountTrustConfiguration": "btp_globalaccount_trust_configuration",
             "btp:index/subaccount:Subaccount": "btp_subaccount",
             "btp:index/subaccountEntitlement:SubaccountEntitlement": "btp_subaccount_entitlement",
             "btp:index/subaccountEnvironmentInstance:SubaccountEnvironmentInstance": "btp_subaccount_environment_instance",
             "btp:index/subaccountRoleCollection:SubaccountRoleCollection": "btp_subaccount_role_collection",
             "btp:index/subaccountRoleCollectionAssignment:SubaccountRoleCollectionAssignment": "btp_subaccount_role_collection_assignment",
+            "btp:index/subaccountSecuritySettings:SubaccountSecuritySettings": "btp_subaccount_security_settings",
             "btp:index/subaccountServiceBinding:SubaccountServiceBinding": "btp_subaccount_service_binding",
             "btp:index/subaccountServiceInstance:SubaccountServiceInstance": "btp_subaccount_service_instance",
             "btp:index/subaccountSubscription:SubaccountSubscription": "btp_subaccount_subscription",
             "btp:index/subaccountTrustConfiguration:SubaccountTrustConfiguration": "btp_subaccount_trust_configuration"
         },
         "functions": {
+            "btp:index/getDirectories:getDirectories": "btp_directories",
             "btp:index/getDirectory:getDirectory": "btp_directory",
             "btp:index/getDirectoryEntitlements:getDirectoryEntitlements": "btp_directory_entitlements",
             "btp:index/getDirectoryLabels:getDirectoryLabels": "btp_directory_labels",
@@ -35,6 +38,7 @@
             "btp:index/getGlobalaccountRoleCollection:getGlobalaccountRoleCollection": "btp_globalaccount_role_collection",
             "btp:index/getGlobalaccountRoleCollections:getGlobalaccountRoleCollections": "btp_globalaccount_role_collections",
             "btp:index/getGlobalaccountRoles:getGlobalaccountRoles": "btp_globalaccount_roles",
+            "btp:index/getGlobalaccountSecuritySettings:getGlobalaccountSecuritySettings": "btp_globalaccount_security_settings",
             "btp:index/getGlobalaccountTrustConfiguration:getGlobalaccountTrustConfiguration": "btp_globalaccount_trust_configuration",
             "btp:index/getGlobalaccountTrustConfigurations:getGlobalaccountTrustConfigurations": "btp_globalaccount_trust_configurations",
             "btp:index/getGlobalaccountUser:getGlobalaccountUser": "btp_globalaccount_user",
@@ -52,6 +56,7 @@
             "btp:index/getSubaccountRoleCollection:getSubaccountRoleCollection": "btp_subaccount_role_collection",
             "btp:index/getSubaccountRoleCollections:getSubaccountRoleCollections": "btp_subaccount_role_collections",
             "btp:index/getSubaccountRoles:getSubaccountRoles": "btp_subaccount_roles",
+            "btp:index/getSubaccountSecuritySettings:getSubaccountSecuritySettings": "btp_subaccount_security_settings",
             "btp:index/getSubaccountServiceBinding:getSubaccountServiceBinding": "btp_subaccount_service_binding",
             "btp:index/getSubaccountServiceBindings:getSubaccountServiceBindings": "btp_subaccount_service_bindings",
             "btp:index/getSubaccountServiceInstance:getSubaccountServiceInstance": "btp_subaccount_service_instance",
@@ -106,6 +111,12 @@
                 "groupName": "group_name",
                 "roleCollectionName": "role_collection_name",
                 "userName": "user_name"
+            },
+            "btp:index/getDirectoriesValue:getDirectoriesValue": {
+                "createdBy": "created_by",
+                "createdDate": "created_date",
+                "lastModified": "last_modified",
+                "parentId": "parent_id"
             },
             "btp:index/getDirectory:getDirectory": {
                 "createdBy": "created_by",
@@ -244,6 +255,13 @@
                 "customGrantedApps": "custom_granted_apps",
                 "grantAsAuthorityToApps": "grant_as_authority_to_apps",
                 "grantedApps": "granted_apps"
+            },
+            "btp:index/getGlobalaccountSecuritySettings:getGlobalaccountSecuritySettings": {
+                "accessTokenValidity": "access_token_validity",
+                "customEmailDomains": "custom_email_domains",
+                "defaultIdentityProvider": "default_identity_provider",
+                "refreshTokenValidity": "refresh_token_validity",
+                "treatUsersWithSameEmailAsSameUser": "treat_users_with_same_email_as_same_user"
             },
             "btp:index/getGlobalaccountTrustConfiguration:getGlobalaccountTrustConfiguration": {
                 "identityProvider": "identity_provider",
@@ -422,6 +440,14 @@
                 "customGrantedApps": "custom_granted_apps",
                 "grantAsAuthorityToApps": "grant_as_authority_to_apps",
                 "grantedApps": "granted_apps"
+            },
+            "btp:index/getSubaccountSecuritySettings:getSubaccountSecuritySettings": {
+                "accessTokenValidity": "access_token_validity",
+                "customEmailDomains": "custom_email_domains",
+                "defaultIdentityProvider": "default_identity_provider",
+                "refreshTokenValidity": "refresh_token_validity",
+                "subaccountId": "subaccount_id",
+                "treatUsersWithSameEmailAsSameUser": "treat_users_with_same_email_as_same_user"
             },
             "btp:index/getSubaccountServiceBinding:getSubaccountServiceBinding": {
                 "bindResource": "bind_resource",
@@ -612,6 +638,13 @@
                 "roleCollectionName": "role_collection_name",
                 "userName": "user_name"
             },
+            "btp:index/globalaccountSecuritySettings:GlobalaccountSecuritySettings": {
+                "accessTokenValidity": "access_token_validity",
+                "customEmailDomains": "custom_email_domains",
+                "defaultIdentityProvider": "default_identity_provider",
+                "refreshTokenValidity": "refresh_token_validity",
+                "treatUsersWithSameEmailAsSameUser": "treat_users_with_same_email_as_same_user"
+            },
             "btp:index/globalaccountTrustConfiguration:GlobalaccountTrustConfiguration": {
                 "identityProvider": "identity_provider",
                 "readOnly": "read_only"
@@ -658,6 +691,14 @@
                 "roleCollectionName": "role_collection_name",
                 "subaccountId": "subaccount_id",
                 "userName": "user_name"
+            },
+            "btp:index/subaccountSecuritySettings:SubaccountSecuritySettings": {
+                "accessTokenValidity": "access_token_validity",
+                "customEmailDomains": "custom_email_domains",
+                "defaultIdentityProvider": "default_identity_provider",
+                "refreshTokenValidity": "refresh_token_validity",
+                "subaccountId": "subaccount_id",
+                "treatUsersWithSameEmailAsSameUser": "treat_users_with_same_email_as_same_user"
             },
             "btp:index/subaccountServiceBinding:SubaccountServiceBinding": {
                 "bindResource": "bind_resource",

@@ -557,6 +557,17 @@ class SubaccountEnvironmentInstance(pulumi.CustomResource):
                 update="35m",
                 delete="30m",
             ))
+        # creates a cloud foundry environment in a given account
+        # and the dedicted target landscape cf-us10
+        cloudfoundry_btp_index_subaccount_environment_instance_subaccount_environment_instance = btp.SubaccountEnvironmentInstance("cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance",
+            subaccount_id="6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f",
+            environment_type="cloudfoundry",
+            service_name="cloudfoundry",
+            landscape_label="cf-us10",
+            plan_name="standard",
+            parameters=json.dumps({
+                "instance_name": "my-cf-org-name",
+            }))
         # creates a kyma environment in a given account
         # NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment
         kyma = btp.SubaccountEnvironmentInstance("kyma",
@@ -649,6 +660,17 @@ class SubaccountEnvironmentInstance(pulumi.CustomResource):
                 update="35m",
                 delete="30m",
             ))
+        # creates a cloud foundry environment in a given account
+        # and the dedicted target landscape cf-us10
+        cloudfoundry_btp_index_subaccount_environment_instance_subaccount_environment_instance = btp.SubaccountEnvironmentInstance("cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance",
+            subaccount_id="6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f",
+            environment_type="cloudfoundry",
+            service_name="cloudfoundry",
+            landscape_label="cf-us10",
+            plan_name="standard",
+            parameters=json.dumps({
+                "instance_name": "my-cf-org-name",
+            }))
         # creates a kyma environment in a given account
         # NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment
         kyma = btp.SubaccountEnvironmentInstance("kyma",

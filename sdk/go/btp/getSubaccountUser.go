@@ -60,7 +60,7 @@ func GetSubaccountUser(ctx *pulumi.Context, args *GetSubaccountUserArgs, opts ..
 
 // A collection of arguments for invoking getSubaccountUser.
 type GetSubaccountUserArgs struct {
-	// The identity provider that hosts the user. The default value is 'ldap'
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin *string `pulumi:"origin"`
 	// The ID of the subaccount.
 	SubaccountId string `pulumi:"subaccountId"`
@@ -80,7 +80,7 @@ type GetSubaccountUserResult struct {
 	GivenName string `pulumi:"givenName"`
 	// The ID of the user.
 	Id string `pulumi:"id"`
-	// The identity provider that hosts the user. The default value is 'ldap'
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin string `pulumi:"origin"`
 	// The set of role collections, which are assigned to the user.
 	RoleCollections []string `pulumi:"roleCollections"`
@@ -107,7 +107,7 @@ func GetSubaccountUserOutput(ctx *pulumi.Context, args GetSubaccountUserOutputAr
 
 // A collection of arguments for invoking getSubaccountUser.
 type GetSubaccountUserOutputArgs struct {
-	// The identity provider that hosts the user. The default value is 'ldap'
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin pulumi.StringPtrInput `pulumi:"origin"`
 	// The ID of the subaccount.
 	SubaccountId pulumi.StringInput `pulumi:"subaccountId"`
@@ -165,7 +165,7 @@ func (o GetSubaccountUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubaccountUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The identity provider that hosts the user. The default value is 'ldap'
+// The identity provider that hosts the user. Only needed for custom identity provider.
 func (o GetSubaccountUserResultOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubaccountUserResult) string { return v.Origin }).(pulumi.StringOutput)
 }

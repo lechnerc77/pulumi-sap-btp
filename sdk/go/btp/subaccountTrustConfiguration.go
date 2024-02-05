@@ -78,7 +78,7 @@ type SubaccountTrustConfiguration struct {
 	// Description of the trust configuration.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The tenant's domain which should be used for user logon.
-	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The name of the Identity Authentication tenant that you want to connect to the subaccount.
 	IdentityProvider pulumi.StringOutput `pulumi:"identityProvider"`
 	// Short string that helps users to identify the link for login.
@@ -366,8 +366,8 @@ func (o SubaccountTrustConfigurationOutput) Description() pulumi.StringOutput {
 }
 
 // The tenant's domain which should be used for user logon.
-func (o SubaccountTrustConfigurationOutput) Domain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubaccountTrustConfiguration) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+func (o SubaccountTrustConfigurationOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubaccountTrustConfiguration) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
 // The name of the Identity Authentication tenant that you want to connect to the subaccount.

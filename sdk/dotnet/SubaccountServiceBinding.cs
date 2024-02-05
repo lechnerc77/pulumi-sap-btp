@@ -71,7 +71,7 @@ namespace PulumiBtp.Btp
         /// The contextual data for the resource.
         /// </summary>
         [Output("context")]
-        public Output<ImmutableDictionary<string, string>> Context { get; private set; } = null!;
+        public Output<string> Context { get; private set; } = null!;
 
         /// <summary>
         /// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
@@ -240,17 +240,11 @@ namespace PulumiBtp.Btp
             set => _bindResource = value;
         }
 
-        [Input("context")]
-        private InputMap<string>? _context;
-
         /// <summary>
         /// The contextual data for the resource.
         /// </summary>
-        public InputMap<string> Context
-        {
-            get => _context ?? (_context = new InputMap<string>());
-            set => _context = value;
-        }
+        [Input("context")]
+        public Input<string>? Context { get; set; }
 
         /// <summary>
         /// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.

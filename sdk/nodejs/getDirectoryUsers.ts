@@ -43,7 +43,7 @@ export interface GetDirectoryUsersArgs {
      */
     directoryId: string;
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'.
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     origin?: string;
 }
@@ -63,7 +63,7 @@ export interface GetDirectoryUsersResult {
      */
     readonly id: string;
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'.
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     readonly origin: string;
     /**
@@ -105,7 +105,7 @@ export interface GetDirectoryUsersOutputArgs {
      */
     directoryId: pulumi.Input<string>;
     /**
-     * The identity provider that hosts the user. The default value is 'ldap'.
+     * The identity provider that hosts the user. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
 }

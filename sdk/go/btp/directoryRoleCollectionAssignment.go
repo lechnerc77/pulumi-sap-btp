@@ -61,7 +61,7 @@ type DirectoryRoleCollectionAssignment struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// The name of the group to assign.
 	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// The name of the role collection.
 	RoleCollectionName pulumi.StringOutput `pulumi:"roleCollectionName"`
@@ -113,7 +113,7 @@ type directoryRoleCollectionAssignmentState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// The name of the group to assign.
 	GroupName *string `pulumi:"groupName"`
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin *string `pulumi:"origin"`
 	// The name of the role collection.
 	RoleCollectionName *string `pulumi:"roleCollectionName"`
@@ -130,7 +130,7 @@ type DirectoryRoleCollectionAssignmentState struct {
 	DirectoryId pulumi.StringPtrInput
 	// The name of the group to assign.
 	GroupName pulumi.StringPtrInput
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin pulumi.StringPtrInput
 	// The name of the role collection.
 	RoleCollectionName pulumi.StringPtrInput
@@ -151,7 +151,7 @@ type directoryRoleCollectionAssignmentArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// The name of the group to assign.
 	GroupName *string `pulumi:"groupName"`
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin *string `pulumi:"origin"`
 	// The name of the role collection.
 	RoleCollectionName string `pulumi:"roleCollectionName"`
@@ -169,7 +169,7 @@ type DirectoryRoleCollectionAssignmentArgs struct {
 	DirectoryId pulumi.StringInput
 	// The name of the group to assign.
 	GroupName pulumi.StringPtrInput
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin pulumi.StringPtrInput
 	// The name of the role collection.
 	RoleCollectionName pulumi.StringInput
@@ -308,7 +308,7 @@ func (o DirectoryRoleCollectionAssignmentOutput) GroupName() pulumi.StringPtrOut
 	return o.ApplyT(func(v *DirectoryRoleCollectionAssignment) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-// The identity provider that hosts the user or a group. The default value is `ldap`.
+// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 func (o DirectoryRoleCollectionAssignmentOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryRoleCollectionAssignment) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
 }

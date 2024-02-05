@@ -59,7 +59,7 @@ type SubaccountRoleCollectionAssignment struct {
 	AttributeValue pulumi.StringPtrOutput `pulumi:"attributeValue"`
 	// The name of the group to assign.
 	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// The name of the role collection.
 	RoleCollectionName pulumi.StringOutput `pulumi:"roleCollectionName"`
@@ -111,7 +111,7 @@ type subaccountRoleCollectionAssignmentState struct {
 	AttributeValue *string `pulumi:"attributeValue"`
 	// The name of the group to assign.
 	GroupName *string `pulumi:"groupName"`
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin *string `pulumi:"origin"`
 	// The name of the role collection.
 	RoleCollectionName *string `pulumi:"roleCollectionName"`
@@ -128,7 +128,7 @@ type SubaccountRoleCollectionAssignmentState struct {
 	AttributeValue pulumi.StringPtrInput
 	// The name of the group to assign.
 	GroupName pulumi.StringPtrInput
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin pulumi.StringPtrInput
 	// The name of the role collection.
 	RoleCollectionName pulumi.StringPtrInput
@@ -149,7 +149,7 @@ type subaccountRoleCollectionAssignmentArgs struct {
 	AttributeValue *string `pulumi:"attributeValue"`
 	// The name of the group to assign.
 	GroupName *string `pulumi:"groupName"`
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin *string `pulumi:"origin"`
 	// The name of the role collection.
 	RoleCollectionName string `pulumi:"roleCollectionName"`
@@ -167,7 +167,7 @@ type SubaccountRoleCollectionAssignmentArgs struct {
 	AttributeValue pulumi.StringPtrInput
 	// The name of the group to assign.
 	GroupName pulumi.StringPtrInput
-	// The identity provider that hosts the user or a group. The default value is `ldap`.
+	// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 	Origin pulumi.StringPtrInput
 	// The name of the role collection.
 	RoleCollectionName pulumi.StringInput
@@ -303,7 +303,7 @@ func (o SubaccountRoleCollectionAssignmentOutput) GroupName() pulumi.StringPtrOu
 	return o.ApplyT(func(v *SubaccountRoleCollectionAssignment) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-// The identity provider that hosts the user or a group. The default value is `ldap`.
+// The identity provider that hosts the user or a group. Only needed for custom identity provider.
 func (o SubaccountRoleCollectionAssignmentOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubaccountRoleCollectionAssignment) pulumi.StringOutput { return v.Origin }).(pulumi.StringOutput)
 }

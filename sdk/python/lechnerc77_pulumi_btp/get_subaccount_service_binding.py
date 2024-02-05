@@ -25,8 +25,8 @@ class GetSubaccountServiceBindingResult:
         if bind_resource and not isinstance(bind_resource, dict):
             raise TypeError("Expected argument 'bind_resource' to be a dict")
         pulumi.set(__self__, "bind_resource", bind_resource)
-        if context and not isinstance(context, dict):
-            raise TypeError("Expected argument 'context' to be a dict")
+        if context and not isinstance(context, str):
+            raise TypeError("Expected argument 'context' to be a str")
         pulumi.set(__self__, "context", context)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
@@ -72,7 +72,7 @@ class GetSubaccountServiceBindingResult:
 
     @property
     @pulumi.getter
-    def context(self) -> Mapping[str, str]:
+    def context(self) -> str:
         """
         Contextual data for the resource.
         """

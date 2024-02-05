@@ -86,7 +86,7 @@ export class SubaccountTrustConfiguration extends pulumi.CustomResource {
     /**
      * The tenant's domain which should be used for user logon.
      */
-    public readonly domain!: pulumi.Output<string | undefined>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * The name of the Identity Authentication tenant that you want to connect to the subaccount.
      */

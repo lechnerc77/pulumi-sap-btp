@@ -25,7 +25,7 @@ type Provider struct {
 	// The subdomain of the global account in which you want to manage resources. To be found in the cockpit, in the global
 	// account view.
 	Globalaccount pulumi.StringOutput `pulumi:"globalaccount"`
-	// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+	// The identity provider to be used for authentication (only required for custom idp).
 	Idp pulumi.StringPtrOutput `pulumi:"idp"`
 	// A valid id token. To be provided instead of 'username' and 'password'. This can also be sourced from the `BTP_IDTOKEN`
 	// environment variable. (SAP-internal usage only)
@@ -79,7 +79,7 @@ type providerArgs struct {
 	// The subdomain of the global account in which you want to manage resources. To be found in the cockpit, in the global
 	// account view.
 	Globalaccount string `pulumi:"globalaccount"`
-	// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+	// The identity provider to be used for authentication (only required for custom idp).
 	Idp *string `pulumi:"idp"`
 	// A valid id token. To be provided instead of 'username' and 'password'. This can also be sourced from the `BTP_IDTOKEN`
 	// environment variable. (SAP-internal usage only)
@@ -104,7 +104,7 @@ type ProviderArgs struct {
 	// The subdomain of the global account in which you want to manage resources. To be found in the cockpit, in the global
 	// account view.
 	Globalaccount pulumi.StringInput
-	// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+	// The identity provider to be used for authentication (only required for custom idp).
 	Idp pulumi.StringPtrInput
 	// A valid id token. To be provided instead of 'username' and 'password'. This can also be sourced from the `BTP_IDTOKEN`
 	// environment variable. (SAP-internal usage only)
@@ -182,7 +182,7 @@ func (o ProviderOutput) Globalaccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Globalaccount }).(pulumi.StringOutput)
 }
 
-// The identity provider to be used for authentication (default: SAP ID service with origin `sap.default`).
+// The identity provider to be used for authentication (only required for custom idp).
 func (o ProviderOutput) Idp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Idp }).(pulumi.StringPtrOutput)
 }

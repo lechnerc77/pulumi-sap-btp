@@ -58,7 +58,7 @@ func GetGlobalaccountUsers(ctx *pulumi.Context, args *GetGlobalaccountUsersArgs,
 
 // A collection of arguments for invoking getGlobalaccountUsers.
 type GetGlobalaccountUsersArgs struct {
-	// The identity provider that hosts the user. The default value is 'ldap'.
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin *string `pulumi:"origin"`
 }
 
@@ -68,7 +68,7 @@ type GetGlobalaccountUsersResult struct {
 	//
 	// Deprecated: Use the `btp_globalaccount` datasource instead
 	Id string `pulumi:"id"`
-	// The identity provider that hosts the user. The default value is 'ldap'.
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin string `pulumi:"origin"`
 	// The list of users assigned to the global account.
 	Values []string `pulumi:"values"`
@@ -89,7 +89,7 @@ func GetGlobalaccountUsersOutput(ctx *pulumi.Context, args GetGlobalaccountUsers
 
 // A collection of arguments for invoking getGlobalaccountUsers.
 type GetGlobalaccountUsersOutputArgs struct {
-	// The identity provider that hosts the user. The default value is 'ldap'.
+	// The identity provider that hosts the user. Only needed for custom identity provider.
 	Origin pulumi.StringPtrInput `pulumi:"origin"`
 }
 
@@ -125,7 +125,7 @@ func (o GetGlobalaccountUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGlobalaccountUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The identity provider that hosts the user. The default value is 'ldap'.
+// The identity provider that hosts the user. Only needed for custom identity provider.
 func (o GetGlobalaccountUsersResultOutput) Origin() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGlobalaccountUsersResult) string { return v.Origin }).(pulumi.StringOutput)
 }

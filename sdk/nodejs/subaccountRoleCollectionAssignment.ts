@@ -68,7 +68,7 @@ export class SubaccountRoleCollectionAssignment extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string | undefined>;
     /**
-     * The identity provider that hosts the user or a group. The default value is `ldap`.
+     * The identity provider that hosts the user or a group. Only needed for custom identity provider.
      */
     public readonly origin!: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export interface SubaccountRoleCollectionAssignmentState {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * The identity provider that hosts the user or a group. The default value is `ldap`.
+     * The identity provider that hosts the user or a group. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface SubaccountRoleCollectionAssignmentArgs {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * The identity provider that hosts the user or a group. The default value is `ldap`.
+     * The identity provider that hosts the user or a group. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**

@@ -829,6 +829,199 @@ func (o SubaccountServiceInstanceTimeoutsPtrOutput) Update() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetDirectoriesValue struct {
+	// The details of the user that created the directory.
+	CreatedBy string `pulumi:"createdBy"`
+	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+	CreatedDate string `pulumi:"createdDate"`
+	// The description of the directory.
+	Description string `pulumi:"description"`
+	// The features that are enabled for the directory. Possible values are:
+	Features []string `pulumi:"features"`
+	// The ID of the directory.
+	Id           string              `pulumi:"id"`
+	Labels       map[string][]string `pulumi:"labels"`
+	LastModified string              `pulumi:"lastModified"`
+	Name         string              `pulumi:"name"`
+	ParentId     string              `pulumi:"parentId"`
+	State        string              `pulumi:"state"`
+	Subdomain    string              `pulumi:"subdomain"`
+}
+
+// GetDirectoriesValueInput is an input type that accepts GetDirectoriesValueArgs and GetDirectoriesValueOutput values.
+// You can construct a concrete instance of `GetDirectoriesValueInput` via:
+//
+//	GetDirectoriesValueArgs{...}
+type GetDirectoriesValueInput interface {
+	pulumi.Input
+
+	ToGetDirectoriesValueOutput() GetDirectoriesValueOutput
+	ToGetDirectoriesValueOutputWithContext(context.Context) GetDirectoriesValueOutput
+}
+
+type GetDirectoriesValueArgs struct {
+	// The details of the user that created the directory.
+	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
+	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
+	// The description of the directory.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The features that are enabled for the directory. Possible values are:
+	Features pulumi.StringArrayInput `pulumi:"features"`
+	// The ID of the directory.
+	Id           pulumi.StringInput         `pulumi:"id"`
+	Labels       pulumi.StringArrayMapInput `pulumi:"labels"`
+	LastModified pulumi.StringInput         `pulumi:"lastModified"`
+	Name         pulumi.StringInput         `pulumi:"name"`
+	ParentId     pulumi.StringInput         `pulumi:"parentId"`
+	State        pulumi.StringInput         `pulumi:"state"`
+	Subdomain    pulumi.StringInput         `pulumi:"subdomain"`
+}
+
+func (GetDirectoriesValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoriesValue)(nil)).Elem()
+}
+
+func (i GetDirectoriesValueArgs) ToGetDirectoriesValueOutput() GetDirectoriesValueOutput {
+	return i.ToGetDirectoriesValueOutputWithContext(context.Background())
+}
+
+func (i GetDirectoriesValueArgs) ToGetDirectoriesValueOutputWithContext(ctx context.Context) GetDirectoriesValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoriesValueOutput)
+}
+
+func (i GetDirectoriesValueArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectoriesValue] {
+	return pulumix.Output[GetDirectoriesValue]{
+		OutputState: i.ToGetDirectoriesValueOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDirectoriesValueArrayInput is an input type that accepts GetDirectoriesValueArray and GetDirectoriesValueArrayOutput values.
+// You can construct a concrete instance of `GetDirectoriesValueArrayInput` via:
+//
+//	GetDirectoriesValueArray{ GetDirectoriesValueArgs{...} }
+type GetDirectoriesValueArrayInput interface {
+	pulumi.Input
+
+	ToGetDirectoriesValueArrayOutput() GetDirectoriesValueArrayOutput
+	ToGetDirectoriesValueArrayOutputWithContext(context.Context) GetDirectoriesValueArrayOutput
+}
+
+type GetDirectoriesValueArray []GetDirectoriesValueInput
+
+func (GetDirectoriesValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoriesValue)(nil)).Elem()
+}
+
+func (i GetDirectoriesValueArray) ToGetDirectoriesValueArrayOutput() GetDirectoriesValueArrayOutput {
+	return i.ToGetDirectoriesValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectoriesValueArray) ToGetDirectoriesValueArrayOutputWithContext(ctx context.Context) GetDirectoriesValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoriesValueArrayOutput)
+}
+
+func (i GetDirectoriesValueArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoriesValue] {
+	return pulumix.Output[[]GetDirectoriesValue]{
+		OutputState: i.ToGetDirectoriesValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDirectoriesValueOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoriesValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoriesValue)(nil)).Elem()
+}
+
+func (o GetDirectoriesValueOutput) ToGetDirectoriesValueOutput() GetDirectoriesValueOutput {
+	return o
+}
+
+func (o GetDirectoriesValueOutput) ToGetDirectoriesValueOutputWithContext(ctx context.Context) GetDirectoriesValueOutput {
+	return o
+}
+
+func (o GetDirectoriesValueOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectoriesValue] {
+	return pulumix.Output[GetDirectoriesValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The details of the user that created the directory.
+func (o GetDirectoriesValueOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
+func (o GetDirectoriesValueOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The description of the directory.
+func (o GetDirectoriesValueOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The features that are enabled for the directory. Possible values are:
+func (o GetDirectoriesValueOutput) Features() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) []string { return v.Features }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the directory.
+func (o GetDirectoriesValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetDirectoriesValueOutput) Labels() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) map[string][]string { return v.Labels }).(pulumi.StringArrayMapOutput)
+}
+
+func (o GetDirectoriesValueOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+func (o GetDirectoriesValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDirectoriesValueOutput) ParentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.ParentId }).(pulumi.StringOutput)
+}
+
+func (o GetDirectoriesValueOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.State }).(pulumi.StringOutput)
+}
+
+func (o GetDirectoriesValueOutput) Subdomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoriesValue) string { return v.Subdomain }).(pulumi.StringOutput)
+}
+
+type GetDirectoriesValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectoriesValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectoriesValue)(nil)).Elem()
+}
+
+func (o GetDirectoriesValueArrayOutput) ToGetDirectoriesValueArrayOutput() GetDirectoriesValueArrayOutput {
+	return o
+}
+
+func (o GetDirectoriesValueArrayOutput) ToGetDirectoriesValueArrayOutputWithContext(ctx context.Context) GetDirectoriesValueArrayOutput {
+	return o
+}
+
+func (o GetDirectoriesValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoriesValue] {
+	return pulumix.Output[[]GetDirectoriesValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDirectoriesValueArrayOutput) Index(i pulumi.IntInput) GetDirectoriesValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoriesValue {
+		return vs[0].([]GetDirectoriesValue)[vs[1].(int)]
+	}).(GetDirectoriesValueOutput)
+}
+
 type GetDirectoryEntitlementsValues struct {
 	// The current state of the entitlement. Possible values are:
 	Category           string  `pulumi:"category"`
@@ -5336,7 +5529,7 @@ type GetSubaccountServiceBindingsValue struct {
 	// Contains the resources associated with the binding.
 	BindResource map[string]string `pulumi:"bindResource"`
 	// Contextual data for the resource.
-	Context map[string]string `pulumi:"context"`
+	Context string `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate string `pulumi:"createdDate"`
 	// The credentials to access the binding.
@@ -5370,7 +5563,7 @@ type GetSubaccountServiceBindingsValueArgs struct {
 	// Contains the resources associated with the binding.
 	BindResource pulumi.StringMapInput `pulumi:"bindResource"`
 	// Contextual data for the resource.
-	Context pulumi.StringMapInput `pulumi:"context"`
+	Context pulumi.StringInput `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The credentials to access the binding.
@@ -5464,8 +5657,8 @@ func (o GetSubaccountServiceBindingsValueOutput) BindResource() pulumi.StringMap
 }
 
 // Contextual data for the resource.
-func (o GetSubaccountServiceBindingsValueOutput) Context() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetSubaccountServiceBindingsValue) map[string]string { return v.Context }).(pulumi.StringMapOutput)
+func (o GetSubaccountServiceBindingsValueOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubaccountServiceBindingsValue) string { return v.Context }).(pulumi.StringOutput)
 }
 
 // The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
@@ -5536,7 +5729,7 @@ func (o GetSubaccountServiceBindingsValueArrayOutput) Index(i pulumi.IntInput) G
 
 type GetSubaccountServiceInstancesValue struct {
 	// Contextual data for the resource.
-	Context map[string]string `pulumi:"context"`
+	Context string `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate string `pulumi:"createdDate"`
 	// The ID of the service instance.
@@ -5569,7 +5762,7 @@ type GetSubaccountServiceInstancesValueInput interface {
 
 type GetSubaccountServiceInstancesValueArgs struct {
 	// Contextual data for the resource.
-	Context pulumi.StringMapInput `pulumi:"context"`
+	Context pulumi.StringInput `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
 	// The ID of the service instance.
@@ -5659,8 +5852,8 @@ func (o GetSubaccountServiceInstancesValueOutput) ToOutput(ctx context.Context) 
 }
 
 // Contextual data for the resource.
-func (o GetSubaccountServiceInstancesValueOutput) Context() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetSubaccountServiceInstancesValue) map[string]string { return v.Context }).(pulumi.StringMapOutput)
+func (o GetSubaccountServiceInstancesValueOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubaccountServiceInstancesValue) string { return v.Context }).(pulumi.StringOutput)
 }
 
 // The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
@@ -7060,6 +7253,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubaccountRoleCollectionRoleArrayInput)(nil)).Elem(), SubaccountRoleCollectionRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubaccountServiceInstanceTimeoutsInput)(nil)).Elem(), SubaccountServiceInstanceTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubaccountServiceInstanceTimeoutsPtrInput)(nil)).Elem(), SubaccountServiceInstanceTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoriesValueInput)(nil)).Elem(), GetDirectoriesValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoriesValueArrayInput)(nil)).Elem(), GetDirectoriesValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryEntitlementsValuesInput)(nil)).Elem(), GetDirectoryEntitlementsValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryEntitlementsValuesMapInput)(nil)).Elem(), GetDirectoryEntitlementsValuesMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryRoleCollectionRoleInput)(nil)).Elem(), GetDirectoryRoleCollectionRoleArgs{})
@@ -7138,6 +7333,8 @@ func init() {
 	pulumi.RegisterOutputType(SubaccountRoleCollectionRoleArrayOutput{})
 	pulumi.RegisterOutputType(SubaccountServiceInstanceTimeoutsOutput{})
 	pulumi.RegisterOutputType(SubaccountServiceInstanceTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GetDirectoriesValueOutput{})
+	pulumi.RegisterOutputType(GetDirectoriesValueArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryEntitlementsValuesOutput{})
 	pulumi.RegisterOutputType(GetDirectoryEntitlementsValuesMapOutput{})
 	pulumi.RegisterOutputType(GetDirectoryRoleCollectionRoleOutput{})

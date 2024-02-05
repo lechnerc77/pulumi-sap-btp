@@ -66,7 +66,7 @@ export class GlobalaccountRoleCollectionAssignment extends pulumi.CustomResource
      */
     public readonly groupName!: pulumi.Output<string | undefined>;
     /**
-     * The identity provider that hosts the user or group. The default value is `ldap`.
+     * The identity provider that hosts the user or group. Only needed for custom identity provider.
      */
     public readonly origin!: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export interface GlobalaccountRoleCollectionAssignmentState {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * The identity provider that hosts the user or group. The default value is `ldap`.
+     * The identity provider that hosts the user or group. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface GlobalaccountRoleCollectionAssignmentArgs {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * The identity provider that hosts the user or group. The default value is `ldap`.
+     * The identity provider that hosts the user or group. Only needed for custom identity provider.
      */
     origin?: pulumi.Input<string>;
     /**

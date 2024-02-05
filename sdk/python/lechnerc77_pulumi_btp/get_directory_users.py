@@ -58,7 +58,7 @@ class GetDirectoryUsersResult:
     @pulumi.getter
     def origin(self) -> str:
         """
-        The identity provider that hosts the user. The default value is 'ldap'.
+        The identity provider that hosts the user. Only needed for custom identity provider.
         """
         return pulumi.get(self, "origin")
 
@@ -105,7 +105,7 @@ def get_directory_users(directory_id: Optional[str] = None,
 
 
     :param str directory_id: The ID of the directory.
-    :param str origin: The identity provider that hosts the user. The default value is 'ldap'.
+    :param str origin: The identity provider that hosts the user. Only needed for custom identity provider.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
@@ -143,6 +143,6 @@ def get_directory_users_output(directory_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str directory_id: The ID of the directory.
-    :param str origin: The identity provider that hosts the user. The default value is 'ldap'.
+    :param str origin: The identity provider that hosts the user. Only needed for custom identity provider.
     """
     ...

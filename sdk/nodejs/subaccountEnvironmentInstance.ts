@@ -50,6 +50,18 @@ import * as utilities from "./utilities";
  *         "delete": "30m",
  *     },
  * });
+ * // creates a cloud foundry environment in a given account
+ * // and the dedicted target landscape cf-us10
+ * const cloudfoundryBtpIndex_subaccountEnvironmentInstanceSubaccountEnvironmentInstance = new btp.SubaccountEnvironmentInstance("cloudfoundryBtpIndex/subaccountEnvironmentInstanceSubaccountEnvironmentInstance", {
+ *     subaccountId: "6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f",
+ *     environmentType: "cloudfoundry",
+ *     serviceName: "cloudfoundry",
+ *     landscapeLabel: "cf-us10",
+ *     planName: "standard",
+ *     parameters: JSON.stringify({
+ *         instance_name: "my-cf-org-name",
+ *     }),
+ * });
  * // creates a kyma environment in a given account
  * // NOTE: for the available parameter values, check https://help.sap.com/docs/btp/sap-business-technology-platform/available-plans-in-kyma-environment
  * const kyma = new btp.SubaccountEnvironmentInstance("kyma", {

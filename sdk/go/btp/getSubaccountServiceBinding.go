@@ -72,7 +72,7 @@ type LookupSubaccountServiceBindingResult struct {
 	// Contains the resources associated with the binding.
 	BindResource map[string]string `pulumi:"bindResource"`
 	// Contextual data for the resource.
-	Context map[string]string `pulumi:"context"`
+	Context string `pulumi:"context"`
 	// The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
 	CreatedDate string `pulumi:"createdDate"`
 	// The credentials to access the binding.
@@ -151,8 +151,8 @@ func (o LookupSubaccountServiceBindingResultOutput) BindResource() pulumi.String
 }
 
 // Contextual data for the resource.
-func (o LookupSubaccountServiceBindingResultOutput) Context() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupSubaccountServiceBindingResult) map[string]string { return v.Context }).(pulumi.StringMapOutput)
+func (o LookupSubaccountServiceBindingResultOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubaccountServiceBindingResult) string { return v.Context }).(pulumi.StringOutput)
 }
 
 // The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.

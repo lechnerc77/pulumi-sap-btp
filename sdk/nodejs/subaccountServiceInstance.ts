@@ -44,15 +44,13 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * terraform
+ * ### Restriction The import of service instances that can be configured via parameters only works if the corresponding service offering supports the retrieval of these parameters, which means that the `instances_retrievable` parameter of the service offering must be set to `true`. You can check this setting via the following data sourceterraform data "btp_subaccount_service_offering" "by_name" {
  *
- * ```sh
- *  $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance <resource_name> <subaccount_id>,<service_instance_id>
- * ```
+ *  subaccount_id = <ID of your subaccount>
  *
- * ```sh
- *  $ pulumi import btp:index/subaccountServiceInstance:SubaccountServiceInstance alert_notification_free 6aa64c2f-38c1-49a9-b2e8-cf9fea769b7f,6a55f158-41b5-4e63-aa77-84089fa0ab98
- * ```
+ *  name
+ *
+ * = <name of the service offering> }
  */
 export class SubaccountServiceInstance extends pulumi.CustomResource {
     /**
@@ -85,7 +83,7 @@ export class SubaccountServiceInstance extends pulumi.CustomResource {
     /**
      * Contextual data for the resource.
      */
-    public /*out*/ readonly context!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly context!: pulumi.Output<string>;
     /**
      * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
      */
@@ -203,7 +201,7 @@ export interface SubaccountServiceInstanceState {
     /**
      * Contextual data for the resource.
      */
-    context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    context?: pulumi.Input<string>;
     /**
      * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
      */

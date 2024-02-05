@@ -76,7 +76,7 @@ export class SubaccountServiceBinding extends pulumi.CustomResource {
     /**
      * The contextual data for the resource.
      */
-    public /*out*/ readonly context!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly context!: pulumi.Output<string>;
     /**
      * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
      */
@@ -182,7 +182,7 @@ export interface SubaccountServiceBindingState {
     /**
      * The contextual data for the resource.
      */
-    context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    context?: pulumi.Input<string>;
     /**
      * The date and time when the resource was created in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format.
      */

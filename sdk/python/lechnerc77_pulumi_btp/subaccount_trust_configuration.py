@@ -623,7 +623,7 @@ class SubaccountTrustConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def domain(self) -> pulumi.Output[Optional[str]]:
+    def domain(self) -> pulumi.Output[str]:
         """
         The tenant's domain which should be used for user logon.
         """
